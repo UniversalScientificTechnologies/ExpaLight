@@ -1,5 +1,5 @@
 include <polyScrewThread_r1.scad>
-$fn=200;
+$fn=50;
 
 CLEAR = 0.05;
 
@@ -8,6 +8,9 @@ stena_hlava = 1;
 r_telo_in = 20/2;
 r_telo_in_min = 17/2;
 r_telo_out = r_telo_in + stena_hl;
+
+r_plast_in = r_telo_out + 0.1;
+r_plast_out = r_plast_in + 8;
 
 telo_vyska = 100;
 telo_vyska_zavit = 10;
@@ -25,9 +28,8 @@ m_pcb_top = m_pcb_bottom + 20;
 
 INd = 20;
 
-module body_r(){
-    //cylinder(telo_vyska-telo_vyska_zavit,r_telo_in,r_telo_in);
 
+module body_r(){
 
     cylinder(m_pcb_bottom,r_telo_in,r_telo_in);
     translate([0,0,m_pcb_top]) cylinder((telo_vyska-telo_vyska_zavit)-m_pcb_top,r_telo_in,r_telo_in);
@@ -53,44 +55,33 @@ module body(){
 				cylinder(hlava_vyska+stena_hlava,r_hlava_out,r_hlava_out);
 			}
 			cylinder(telo_vyska,r_telo_out,r_telo_out);
-		}union(){
-			/*cylinder(telo_vyska,r_telo_in_min,r_telo_in_min);
-			translate([0,0,-hlava_vyska]){
-				//cylinder(telo_vyska+hlava_vyska-telo_vyska_zavit,r_telo_in,r_telo_in);
-				//cylinder(telo_vyska+hlava_vyska+CLEAR,r_telo_in_min,r_telo_in_min);
-				cylinder(telo_vyska+hlava_vyska+CLEAR,r_telo_in,r_telo_in);  // tohlo pak zakomentovat
-				rotate([0,90,0]) translate([-10,0,5]) cylinder(r_hlava_out ,led_dira, led_dira);
-			}
-		//	translate([0,0,-10+5/2]) rotate([0,90,0]) cylinder(hlava_vyska/2-5 ,led_dira/2,led_dira/2);
-		//	translate([-3,-3,-15]) cube([3,6,1]);*/
-		body_r();
 		}
+		body_r();
 	}
 }
 
 module cap(){
 	difference(){
 	union(){
-		translate([0,0,15]) cylinder(2,30/2,30/2);
-		cylinder(15,INd/2-0.5,INd/2-0.5);
+		translate([0,0,telo_vyska_zavit-1]) cylinder(stena_hlava, r_hlava_out,r_hlava_out);
+		cylinder(telo_vyska_zavit-1+CLEAR,r_telo_in,r_telo_in);
 		//screw_thread(INd+3,4,15,100,1,2);
 	}union(){
-		cylinder(13,INd/2-3,INd/2-3);
+		translate([0,0,-CLEAR]) cylinder(telo_vyska_zavit-stena_hl ,r_telo_in_min,r_telo_in_min);
 	}
 	}
 }
 
+
 module plast(){
-		//rotate([90,0,0]) rotate_extrude(convexity=10) translate([vnitrniD*1.77,0,0]) circle(vnitrniD);
 	difference(){
-		cylinder(100,INd/2+8,INd/2+8, $fn=6);
+		translate([0,0,CLEAR]) cylinder(telo_vyska-2*CLEAR,r_plast_out,r_plast_out, $fn=6);
+		cylinder(telo_vyska,r_plast_in, r_plast_in);
 		for(a=[0:6]){
-			rotate([0,0,a*(360/6)]) translate([0,INd*2.27,0]) cylinder(100, INd*1.5, INd*1.5);
+			rotate([0,0,a*(360/6)]) translate([0,r_hlava_out*2.45,0]) cylinder(100, r_hlava_out*1.25, r_hlava_out*1.25);
 		}
-		cylinder(100,INd/2, INd/2);
-		screw_thread(INd+4,4,20,100,1,2);
-		translate([0, 0, 100]) rotate_extrude(convexity=10) translate([INd*1.77,0,0]) circle(INd);
-		translate([0,   0,   0]) rotate_extrude(convexity=10) translate([INd*1.77,0,0]) circle(INd);
+		translate([0, 0, telo_vyska]) rotate_extrude(convexity=10) translate([r_hlava_out*2,0,0]) circle(r_hlava_out);
+		translate([     0,   0,   0]) rotate_extrude(convexity=10) translate([r_hlava_out*2,0,0]) circle(r_hlava_out);
 	}
 }
 
@@ -101,3 +92,7 @@ module plast(){
 
 body();
 translate([0,50,0]) #body_r();
+
+translate([0,-50,0]) plast();
+
+translate([30,0,0]) cap();
