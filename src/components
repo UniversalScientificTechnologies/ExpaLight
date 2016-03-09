@@ -1,0 +1,13 @@
+Kondenzátor SAMXON 22F 2.7V		- DRL226S0TK25RR---  http://www.tme.eu/cz/details/drl22_2.7/superkondenzatory/samxon/drl226s0tk25rr/
+USB konektor micro			- ESB227	---  http://www.tme.eu/cz/details/esb228110100z/konektory-usb-a-ieee1394/ece/esb2281101/ 
+Lineární stabilizátor U, LM317AT	- LM317AT	---  http://www.tme.eu/cz/details/lm317at_nopb/stabilizatory-napeti-regulovane/texas-instruments/
+R 330  -- pro stabilizator
+R 390  -- pro stabilizator
+
+LED 5mm červená; 26°; 2100mcd 20mA; 2,0 V
+R xx  -- pro LED
+
+R (6.8)-- pro omezeni proudu na USB
+D - usměrňovací - mezi stabilizátorem a kondenzátorem (nevím jestli je nutná)
+
+
