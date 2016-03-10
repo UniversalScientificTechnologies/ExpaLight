@@ -19,9 +19,11 @@ hlava_vyska = 15;
 r_hlava_out = r_telo_in + stena_hl + 1.5;
 
 led_dira = 3;
+led_koule = 10;
+led_koule_zanoreni = 5;
 led_posun = 8;
 
-sila_pcb = 2.2;
+sila_pcb = 1.75;
 
 m_pcb_bottom = 50;
 m_pcb_top = m_pcb_bottom + 20;
@@ -39,11 +41,22 @@ module body_r(){
 	translate([0,0,-hlava_vyska]){
 				translate([0,0, 0]) cylinder(telo_vyska+hlava_vyska+CLEAR,r_telo_in_min,r_telo_in_min);
 				rotate([0,90,0]) translate([-led_posun,0,5]) cylinder(r_hlava_out ,led_dira, led_dira);
-				rotate([0,90,0]) translate([-led_posun,0,5+r_hlava_out/3]) cylinder(r_hlava_out/2 ,led_dira, led_dira*2);
+				//rotate([0,90,0]) translate([-led_posun,0,5+r_hlava_out/3]) cylinder(r_hlava_out/2 ,led_dira, led_dira*2);
 				rotate([90,0,0]) translate([0,18,-r_hlava_out]) cylinder(r_hlava_out*2 ,1/2, 1/2);
 				translate([-3,sila_pcb/2, -stena_hlava-CLEAR]) cube([6.5,2.5,stena_hlava]);
 				translate([-r_telo_in,-sila_pcb/2, 0]) cube([r_telo_in*2,sila_pcb,hlava_vyska+telo_vyska+CLEAR]);
-				translate([-sila_pcb/2, -r_telo_in, 0]) cube([sila_pcb, r_telo_in*2,hlava_vyska+telo_vyska+CLEAR]);
+				translate([-sila_pcb/2, -r_telo_in, hlava_vyska+m_pcb_bottom]) cube([sila_pcb, r_telo_in*2, telo_vyska+CLEAR-m_pcb_bottom]);
+				translate([r_plast_out-led_koule_zanoreni, 0, led_posun]) resize(newsize=[1.5*led_koule,1*led_koule,1*led_koule]) sphere(led_koule);
+
+				intersection(){
+					translate([0,0, CLEAR]) cylinder(hlava_vyska+CLEAR,r_telo_in-CLEAR,r_telo_in-CLEAR);
+					translate([-r_telo_in_min, -r_telo_in, 0]) cube([r_telo_in_min*2,r_telo_in*2, hlava_vyska]);
+				}
+				intersection(){
+					translate([0,0, m_pcb_bottom+hlava_vyska-CLEAR]) cylinder(telo_vyska+hlava_vyska+CLEAR,r_telo_in-CLEAR,r_telo_in-CLEAR);
+					translate([-r_telo_in, -r_telo_in_min, m_pcb_bottom+hlava_vyska]) cube([r_telo_in*2,r_telo_in_min*2, m_pcb_top - m_pcb_bottom]);
+				}
+
 			}
 
 }
@@ -90,9 +103,9 @@ module plast(){
 //color([1,0.5,0.5]) translate([0,0,110]) plast();
 
 
-body();
+//body();
 translate([0,50,0]) #body_r();
 
-translate([0,-50,0]) plast();
+//translate([0,-50,0]) plast();
 
 translate([30,0,0]) cap();
