@@ -1,8 +1,8 @@
-include <polyScrewThread_r1.scad>
+//include <polyScrewThread_r1.scad>
 use <Thread_Library.scad>
 
 
-$fn=200;
+$fn=20;
 
 CLEAR = 0.05;
 
@@ -10,7 +10,7 @@ stena_hl = 2;
 stena_hlava = 1;
 r_telo_in = 20/2;
 r_telo_in_min = 17/2;
-r_telo_out = r_telo_in + stena_hl;
+r_telo_out = r_telo_in + stena_hl+1;
 
 r_plast_in = r_telo_out + 0.1;
 r_plast_out = r_plast_in + 8;
@@ -40,7 +40,7 @@ module body_r(){
     cylinder(m_pcb_bottom,r_telo_in,r_telo_in);
     translate([0,0,m_pcb_top]) cylinder((telo_vyska-telo_vyska_zavit)-m_pcb_top,r_telo_in,r_telo_in);
 
-    translate([0,0,telo_vyska-telo_vyska_zavit-CLEAR]) cylinder(telo_vyska_zavit+10+CLEAR*2,(r_telo_in_min + r_telo_in )/2+1,(r_telo_in_min + r_telo_in )/2+1); // Nahradit závitem
+    translate([0,0,telo_vyska-telo_vyska_zavit-CLEAR]) cylinder(telo_vyska_zavit+10+CLEAR*2,r_telo_in_min+1,r_telo_in_min +1); // Nahradit závitem
 	 //translate([0,0,telo_vyska-telo_vyska_zavit-CLEAR]) cylinder(telo_vyska_zavit+CLEAR*2,r_telo_in+1,r_telo_in+1); // Nahradit závitem
 	translate([0,0,telo_vyska-telo_vyska_zavit-CLEAR-5]){
 		trapezoidThread(
@@ -56,7 +56,7 @@ module body_r(){
 			RH=true, 						// true/false the thread winds clockwise looking along shaft, i.e.follows the Right Hand Rule
 			clearance=0.1, 					// radial clearance, normalized to thread height
 			backlash=0.1, 					// axial clearance, normalized to pitch
-			stepsPerTurn=64 				// number of slices to create per turn
+			stepsPerTurn=20 				// number of slices to create per turn
 		);
 	}
 
@@ -103,10 +103,26 @@ module cap(){
 	difference(){
 	union(){
 		translate([0,0,telo_vyska_zavit-1]) cylinder(stena_hlava, r_hlava_out,r_hlava_out);
-		cylinder(telo_vyska_zavit-1+CLEAR,r_telo_in,r_telo_in);
-		//screw_thread(INd+3,4,15,100,1,2);
+		intersection(){
+		translate([0,0,0]) trapezoidThread(
+			length=telo_vyska_zavit-CLEAR+5,		// axial length of the threaded rod 
+			pitch=5, 						// axial distance from crest to crest
+			pitchRadius=r_telo_in-1, 		// radial distance from center to mid-profile
+			threadHeightToPitch=0.5, 		// ratio between the height of the profile and the pitch 
+											// std value for Acme or metric lead screw is 0.5
+			profileRatio=0.5, 				// ratio between the lengths of the raised part of the profile and the pitch
+											// std value for Acme or metric lead screw is 0.5
+			threadAngle=30,					// angle between the two faces of the thread 
+											// std value for Acme is 29 or for metric lead screw is 30
+			RH=true, 						// true/false the thread winds clockwise looking along shaft, i.e.follows the Right Hand Rule
+			clearance=0.1, 					// radial clearance, normalized to thread height
+			backlash=0.1, 					// axial clearance, normalized to pitch
+			stepsPerTurn=64 				// number of slices to create per turn
+		);
+			cylinder(telo_vyska_zavit,30,30);
+		}
 	}union(){
-		translate([0,0,-CLEAR]) cylinder(telo_vyska_zavit-stena_hl ,r_telo_in_min,r_telo_in_min);
+		translate([0,0,-CLEAR]) cylinder(telo_vyska_zavit-stena_hl ,r_telo_in_min*3/4,r_telo_in_min*3/4);
 	}
 	}
 }
