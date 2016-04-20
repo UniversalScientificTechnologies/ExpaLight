@@ -1,0 +1,10 @@
+"ID";"Určovatel";"Pouzdro";"Množství";"Určení";"Tisk rohového razítka";
+1;"C1,C2";"SMD-0805";2;"10uF";;;
+2;"D1,D2";"LED_1206";2;"KPTD-3216SURC";;;
+3;"J1";"Straight_2x03";1;"JUMP_3X2";;;
+4;"J2";"Straight_1x02";1;"CONN_2";;;
+5;"L1";"DLG0504";1;"DLG-0504-4R7";;;
+6;"P1";"uUSB-B";1;"USB_B";;;
+7;"R1";"SMD-0805";1;"1M";;;
+8;"R2";"SMD-0805";1;"6R2";;;
+9;"U1";"MSOP-8_3x3mm_Pitch0.65mm";1;"MCP1643";;;
