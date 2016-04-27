@@ -2,13 +2,14 @@
 use <Thread_Library.scad>
 
 
-$fn=20;
+$fn=150;
 
 CLEAR = 0.05;
+perimeter = 0.41;
 
 stena_hl = 2;
 stena_hlava = 1;
-r_telo_in = 20/2;
+r_telo_in = 19.5/2;
 r_telo_in_min = 17/2;
 r_telo_out = r_telo_in + stena_hl+1;
 
@@ -23,7 +24,7 @@ r_hlava_out = r_telo_in + stena_hl + 1.5;
 
 led_dira = 3;
 led_koule = 10;
-led_koule_zanoreni = 5;
+led_koule_zanoreni = 3;
 led_posun = 8;
 led_mezera = 3;
 
@@ -31,6 +32,7 @@ sila_pcb = 1.75;
 
 m_pcb_bottom = 35;
 m_pcb_top = m_pcb_bottom + 30;
+m_pcb_width = 20.05;
 
 INd = 20;
 
@@ -48,11 +50,8 @@ module body_r(){
 			pitch=5, 						// axial distance from crest to crest
 			pitchRadius=r_telo_in, 		// radial distance from center to mid-profile
 			threadHeightToPitch=0.5, 		// ratio between the height of the profile and the pitch 
-											// std value for Acme or metric lead screw is 0.5
 			profileRatio=0.5, 				// ratio between the lengths of the raised part of the profile and the pitch
-											// std value for Acme or metric lead screw is 0.5
 			threadAngle=30,					// angle between the two faces of the thread 
-											// std value for Acme is 29 or for metric lead screw is 30
 			RH=true, 						// true/false the thread winds clockwise looking along shaft, i.e.follows the Right Hand Rule
 			clearance=0.1, 					// radial clearance, normalized to thread height
 			backlash=0.1, 					// axial clearance, normalized to pitch
@@ -63,14 +62,14 @@ module body_r(){
 				
 	translate([0,0,-hlava_vyska]){
 				translate([0,0, 0]) cylinder(telo_vyska+hlava_vyska+CLEAR,r_telo_in_min,r_telo_in_min);
-				rotate([0,90,0]) translate([-led_posun,0,5]) cylinder(r_hlava_out ,led_dira, led_dira);
+				rotate([0,90,0]) translate([-led_posun,0,m_pcb_width/2+perimeter]) cylinder(r_hlava_out ,led_dira, led_dira);
 				//rotate([0,90,0]) translate([-led_posun,0,5+r_hlava_out/3]) cylinder(r_hlava_out/2 ,led_dira, led_dira*2);
 				rotate([90,0,0]) translate([0,18,-r_hlava_out]) cylinder(r_hlava_out*2 ,1/2, 1/2);
-				translate([-3,sila_pcb/2, -stena_hlava-CLEAR]) cube([6.5,2.5,stena_hlava]);
-				#translate([-r_telo_in,-sila_pcb/2, 0]) cube([r_telo_in*2,sila_pcb,hlava_vyska+telo_vyska+CLEAR+10]);
-				#translate([0,-sila_pcb/2-led_mezera/2, 0]) cube([r_telo_in,sila_pcb+led_mezera,hlava_vyska+telo_vyska+CLEAR+10]);
-				#translate([-sila_pcb/2, -r_telo_in, hlava_vyska+m_pcb_bottom]) cube([sila_pcb, r_telo_in*2, telo_vyska+CLEAR-m_pcb_bottom+10]);
-				translate([r_plast_out-led_koule_zanoreni, 0, led_posun]) resize(newsize=[1.5*led_koule,1*led_koule,1*led_koule]) sphere(led_koule);
+				translate([-3,sila_pcb/2, -stena_hlava-CLEAR]) cube([6.5,2.5,stena_hlava]);                                                                          // USB konektor díra
+				translate([-m_pcb_width/2,-sila_pcb/2, 0]) cube([m_pcb_width/2,sila_pcb,hlava_vyska+telo_vyska+CLEAR+10]);
+				translate([0,sila_pcb-led_mezera, 0]) cube([m_pcb_width/2,sila_pcb+led_mezera,hlava_vyska+telo_vyska+CLEAR+10]);
+				//translate([-sila_pcb/2, -r_telo_in, hlava_vyska+m_pcb_bottom]) cube([sila_pcb, r_telo_in*2, telo_vyska+CLEAR-m_pcb_bottom+10]);
+				translate([r_plast_out-led_koule_zanoreni, 0, led_posun]) resize(newsize=[1.5*led_koule,1*led_koule,1*led_koule]) sphere(led_koule);   // Koule (elipsoid) jako parabola pro led
 
 				intersection(){
 					translate([0,0, CLEAR]) cylinder(hlava_vyska+CLEAR,r_telo_in-CLEAR,r_telo_in-CLEAR);
@@ -80,7 +79,7 @@ module body_r(){
 				}
 				intersection(){
 					translate([0,0, m_pcb_bottom+hlava_vyska-CLEAR]) cylinder(telo_vyska+hlava_vyska+CLEAR,r_telo_in-CLEAR,r_telo_in-CLEAR);
-					translate([-r_telo_in, -r_telo_in_min, m_pcb_bottom+hlava_vyska]) cube([r_telo_in*2,r_telo_in_min*2, m_pcb_top - m_pcb_bottom]);
+					//translate([-r_telo_in, -r_telo_in_min, m_pcb_bottom+hlava_vyska]) cube([r_telo_in*2,r_telo_in_min*2, m_pcb_top - m_pcb_bottom]);
 				}
 		
 			}
@@ -140,13 +139,15 @@ module plast(){
 	}
 }
 
-//translate([0,0,0]) body();
+
+translate([0,0,0]) body();
 //translate([0,0,220]) cap();
 //color([1,0.5,0.5]) translate([0,0,110]) plast();
 
 
-body();
+//body();
 //body_r();
+
 //translate([0,50,0]) #body_r();
 
 //translate([0,-50,0]) plast();
