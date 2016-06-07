@@ -7,3 +7,12 @@ Asi to bude docela trvat (i tak to bude rychlejsi nez tisk) ... Ale nejdrive bud
 
 * přidat těsnění  (O-kroužek pro zamezení průniku vlhkosti do pouzdra)
 * SMD LED na PCB překrýt jedním perimetrem tištěného perimetru z pouzdra, nebo izolepou, aby LED a elektronika byla chraněna před vlhkostí.
+
+### LED regulátor
+Má nízkou účinsot a není známá přesná příčina. Možné závady: 
+* Problém s layoutem PCB
+* špatné vedení země
+* nekvalitně přiletovaná LED.
+* Nevhodné hodnoty součástek, indukčnosti, kapacity. 
+
+
