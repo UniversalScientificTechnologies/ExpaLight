@@ -1,4 +1,6 @@
 # ExpaLight
+
+[![Join the chat at https://gitter.im/expediceupice/ExpaLight](https://badges.gitter.im/expediceupice/ExpaLight.svg)](https://gitter.im/expediceupice/ExpaLight?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 Super-capacitor based LED red light for astronomical observations. The main intended use is for the observing nights at summer astronomical school at Upice observatory.
 
 ## What are the benefits of using this flashlight?
