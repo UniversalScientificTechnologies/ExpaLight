@@ -87,36 +87,25 @@ F 3 "" H 3350 3250 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L CP Cd1
+L CP C3
 U 1 1 56E812E5
 P 7050 3650
-F 0 "Cd1" H 7075 3750 50  0000 L CNN
+F 0 "C3" H 7075 3750 50  0000 L CNN
 F 1 "22F" H 7075 3550 50  0000 L CNN
-F 2 "Mlab_C:C_Radial_D16_L25_P7.5" H 7088 3500 50  0001 C CNN
+F 2 "Mlab_C:C_Radial_D18_L25_P7.5" H 7088 3500 50  0001 C CNN
 F 3 "" H 7050 3650 50  0000 C CNN
 	1    7050 3650
 	1    0    0    -1  
 $EndComp
 $Comp
-L CONN1_1 J3
+L CONN1_1 J2
 U 1 1 56E82602
 P 4200 3400
-F 0 "J3" H 4250 3450 50  0000 C CNN
+F 0 "J2" H 4250 3450 50  0000 C CNN
 F 1 "CONN1_1" H 4300 3350 40  0001 C CNN
-F 2 "Mlab_Pin_Headers:Straight_1x01" H 4250 3350 60  0001 C CNN
+F 2 "Measurement_Points:Measurement_Point_Round-SMD-Pad_Big" H 4250 3350 60  0001 C CNN
 F 3 "" H 4250 3350 60  0000 C CNN
 	1    4200 3400
-	-1   0    0    1   
-$EndComp
-$Comp
-L CONN1_1 J2
-U 1 1 56E82658
-P 4200 3300
-F 0 "J2" H 4250 3350 50  0000 C CNN
-F 1 "CONN1_1" H 4300 3250 40  0001 C CNN
-F 2 "Mlab_Pin_Headers:Straight_1x01" H 4250 3250 60  0001 C CNN
-F 3 "" H 4250 3250 60  0000 C CNN
-	1    4200 3300
 	-1   0    0    1   
 $EndComp
 Wire Wire Line
@@ -172,9 +161,6 @@ F 3 "" H 2950 3500 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 Connection ~ 4050 3000
-Wire Wire Line
-	4500 3350 4500 3000
-Connection ~ 4500 3000
 Text Label 4500 3450 0    60   ~ 0
 EN
 Text Label 3100 3000 0    60   ~ 0
@@ -279,7 +265,7 @@ U 1 1 56E875AF
 P 7050 3150
 F 0 "C2" H 7075 3250 50  0000 L CNN
 F 1 "100uF" H 7075 3050 50  0000 L CNN
-F 2 "Mlab_C:C_Radial_D16_L25_P7.5" H 7088 3000 50  0001 C CNN
+F 2 "Mlab_C:TantalC_SizeC_Reflow" H 7088 3000 50  0001 C CNN
 F 3 "" H 7050 3150 50  0000 C CNN
 	1    7050 3150
 	1    0    0    -1  
@@ -297,12 +283,12 @@ Connection ~ 7050 3450
 Wire Wire Line
 	6900 3800 6000 3800
 $Comp
-L JUMP_2x1 J4
+L JUMP_2x1 J3
 U 1 1 56E8A378
 P 6650 4350
-F 0 "J4" H 6300 4550 50  0000 C CNN
+F 0 "J3" H 6300 4550 50  0000 C CNN
 F 1 "JUMP_2x1" V 6650 4500 40  0001 C CNN
-F 2 "Mlab_Pin_Headers:Straight_2x01" H 6650 4350 60  0001 C CNN
+F 2 "Measurement_Points:Measurement_Point_Round-SMD-Pad_Big" H 6650 4350 60  0001 C CNN
 F 3 "" H 6650 4350 60  0000 C CNN
 	1    6650 4350
 	1    0    0    -1  
@@ -316,10 +302,10 @@ Text Label 6000 4200 0    60   ~ 0
 Text Label 6000 4350 0    60   ~ 0
 PG
 $Comp
-L JUMP_3X2 J6
+L JUMP_3X2 J5
 U 1 1 56E8C89C
 P 8650 3050
-F 0 "J6" H 8300 3250 50  0000 C CNN
+F 0 "J5" H 8300 3250 50  0000 C CNN
 F 1 "JUMP_3X2" V 8650 3100 40  0001 C CNN
 F 2 "Mlab_Pin_Headers:Straight_2x03" H 8650 3050 60  0001 C CNN
 F 3 "" H 8650 3050 60  0000 C CNN
@@ -425,12 +411,12 @@ F 3 "" H 7550 4200 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L JUMP_2x1 J5
+L JUMP_2x1 J4
 U 1 1 56E8A461
 P 6650 4500
-F 0 "J5" H 6300 4700 50  0000 C CNN
+F 0 "J4" H 6300 4700 50  0000 C CNN
 F 1 "JUMP_2x1" V 6650 4650 40  0001 C CNN
-F 2 "Mlab_Pin_Headers:Straight_2x01" H 6650 4500 60  0001 C CNN
+F 2 "Measurement_Points:Measurement_Point_Round-SMD-Pad_Big" H 6650 4500 60  0001 C CNN
 F 3 "" H 6650 4500 60  0000 C CNN
 	1    6650 4500
 	1    0    0    -1  
