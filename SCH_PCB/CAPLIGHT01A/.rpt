@@ -1,26 +1,17 @@
 ** Drc report for /home/roman/repos/ExpaLight/SCH_PCB/CAPLIGHT01A/CAPLIGHT01A.kicad_pcb **
-** Created on 2016-07-03 15:36:12 **
+** Created on 2016-07-03 18:14:47 **
 
-** Found 5 DRC errors **
+** Found 2 DRC errors **
 ErrType(4): Track near pad
-    @ (168,275 mm,115,570 mm): Via 0,800 mm net [] (0) on layers F.Cu/B.Cu
-    @ (168,275 mm,114,300 mm): Pad 2 on F.Cu, B.Cu, Internal, Non-copper of C3
-ErrType(4): Track near pad
-    @ (168,275 mm,113,030 mm): Via 0,800 mm net [] (0) on layers F.Cu/B.Cu
-    @ (168,275 mm,114,300 mm): Pad 2 on F.Cu, B.Cu, Internal, Non-copper of C3
-ErrType(15): Two track ends too close
-    @ (154,157 mm,115,600 mm): Track 0,300 mm, net [/EN] (3) on layer F.Cu, length: 0,650 mm
-    @ (153,657 mm,115,600 mm): Track 0,300 mm, net [Net-(R4-Pad1)] (12) on layer F.Cu, length: 1,863 mm
-ErrType(14): Two track ends too close
-    @ (154,157 mm,118,500 mm): Track 0,300 mm, net [/#PFO] (4) on layer F.Cu, length: 1,367 mm
-    @ (153,657 mm,118,500 mm): Track 0,300 mm, net [Net-(R2-Pad2)] (11) on layer F.Cu, length: 2,029 mm
+    @ (156,845 mm,118,745 mm): Track 0,500 mm, net [Net-(L1-Pad1)] (5) on layer F.Cu, length: 0,635 mm
+    @ (155,657 mm,118,500 mm): Pad 11 on F.Cu, Non-copper of U1
 ErrType(17): Two track ends too close
-    @ (155,657 mm,119,488 mm): Track 0,300 mm, net [Net-(C2-Pad1)] (7) on layer F.Cu, length: 5,236 mm
-    @ (155,157 mm,118,500 mm): Track 0,300 mm, net [Net-(C2-Pad2)] (8) on layer F.Cu, length: 3,868 mm
+    @ (155,657 mm,119,488 mm): Track 0,300 mm, net [Net-(C2-Pad1)] (6) on layer F.Cu, length: 5,236 mm
+    @ (155,157 mm,118,500 mm): Track 0,300 mm, net [Net-(C2-Pad2)] (7) on layer F.Cu, length: 3,868 mm
 
 ** Found 1 unconnected pads **
 ErrType(2): Unconnected pads
-    @ (139,700 mm,119,110 mm): Pad 5 on F.Cu, Non-copper of P1 net GND
-    @ (142,400 mm,119,410 mm): Pad 5 on F.Cu, Non-copper of P1
+    @ (162,560 mm,111,980 mm): Pad 1 on F.Cu, Non-copper of L1 net Net-(L1-Pad1)
+    @ (156,157 mm,115,600 mm): Pad 1 on F.Cu, Non-copper of U1
 
 ** End of Report **
