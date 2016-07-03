@@ -1,4 +1,4 @@
-update=So 2. červenec 2016, 19:09:35 CEST
+update=Ne 3. červenec 2016, 13:06:51 CEST
 version=1
 last_client=kicad
 [pcbnew]
@@ -66,8 +66,6 @@ LibName36=opto
 LibName37=atmel
 LibName38=contrib
 LibName39=valves
-[general]
-version=1
 [schematic_editor]
 version=1
 PageLayoutDescrFile=
@@ -79,3 +77,5 @@ SpiceForceRefPrefix=0
 SpiceUseNetNumbers=0
 LabSize=60
 ERC_TestSimilarLabels=1
+[general]
+version=1

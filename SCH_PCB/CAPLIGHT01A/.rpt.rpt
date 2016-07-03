@@ -1,8 +1,17 @@
 ** Drc report for /home/roman/repos/ExpaLight/SCH_PCB/CAPLIGHT01A/CAPLIGHT01A.kicad_pcb **
-** Created on 2016-07-02 20:36:24 **
+** Created on 2016-07-03 13:06:31 **
 
 ** Found 0 DRC errors **
 
-** Found 0 unconnected pads **
+** Found 3 unconnected pads **
+ErrType(2): Unconnected pads
+    @ (156,210 mm,112,395 mm): Pad 2 on F.Cu, Non-copper of C1 net GND
+    @ (156,145 mm,116,625 mm): Pad 13 on F.Cu, Non-copper of U1
+ErrType(2): Unconnected pads
+    @ (142,400 mm,119,410 mm): Pad 5 on F.Cu, Non-copper of P1 net GND
+    @ (139,700 mm,119,110 mm): Pad 5 on F.Cu, Non-copper of P1
+ErrType(2): Unconnected pads
+    @ (156,145 mm,117,475 mm): Pad 13 on F.Cu, Non-copper of U1 net GND
+    @ (155,320 mm,117,475 mm): Pad 13 on F.Cu, Non-copper of U1
 
 ** End of Report **

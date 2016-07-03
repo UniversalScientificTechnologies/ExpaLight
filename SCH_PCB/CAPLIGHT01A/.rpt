@@ -1,11 +1,26 @@
 ** Drc report for /home/roman/repos/ExpaLight/SCH_PCB/CAPLIGHT01A/CAPLIGHT01A.kicad_pcb **
-** Created on 2016-07-02 20:35:32 **
+** Created on 2016-07-03 12:54:33 **
 
-** Found 0 DRC errors **
+** Found 3 DRC errors **
+ErrType(16): Two track ends too close
+    @ (155,157 mm,115,600 mm): Track 0,300 mm, net [/VIN] (1) on layer F.Cu, length: 4,893 mm
+    @ (154,657 mm,114,653 mm): Track 0,300 mm, net [Net-(R1-Pad1)] (10) on layer F.Cu, length: 1,397 mm
+ErrType(14): Two track ends too close
+    @ (154,157 mm,114,950 mm): Track 0,300 mm, net [/EN] (3) on layer F.Cu, length: 0,650 mm
+    @ (153,657 mm,115,600 mm): Track 0,300 mm, net [Net-(R4-Pad1)] (12) on layer F.Cu, length: 1,863 mm
+ErrType(17): Two track ends too close
+    @ (155,657 mm,119,488 mm): Track 0,300 mm, net [Net-(C2-Pad1)] (7) on layer F.Cu, length: 5,236 mm
+    @ (155,157 mm,118,500 mm): Track 0,300 mm, net [Net-(C2-Pad2)] (8) on layer F.Cu, length: 3,868 mm
 
-** Found 1 unconnected pads **
+** Found 3 unconnected pads **
 ErrType(2): Unconnected pads
-    @ (147,320 mm,118,110 mm): Pad 1 on F.Cu, Non-copper of R7 net Net-(D2-Pad1)
-    @ (145,415 mm,119,380 mm): Pad 1 on F.Cu, B.Cu, Internal, Non-copper of D2
+    @ (156,145 mm,117,475 mm): Pad 13 on F.Cu, Non-copper of U1 net GND
+    @ (155,320 mm,117,475 mm): Pad 13 on F.Cu, Non-copper of U1
+ErrType(2): Unconnected pads
+    @ (155,320 mm,116,625 mm): Pad 13 on F.Cu, Non-copper of U1 net GND
+    @ (156,145 mm,116,625 mm): Pad 13 on F.Cu, Non-copper of U1
+ErrType(2): Unconnected pads
+    @ (142,400 mm,119,410 mm): Pad 5 on F.Cu, Non-copper of P1 net GND
+    @ (139,700 mm,119,110 mm): Pad 5 on F.Cu, Non-copper of P1
 
 ** End of Report **
