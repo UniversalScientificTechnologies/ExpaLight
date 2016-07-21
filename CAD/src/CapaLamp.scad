@@ -9,7 +9,7 @@ perimeter = 0.43;
 
 stena_hl = 2;
 stena_hlava = 1; // spodni stena u usb
-r_telo_in = 19/2;
+r_telo_in = 19.2/2;
 r_telo_in_min = r_telo_in ;
 r_telo_out = r_telo_in + stena_hl;
 
@@ -39,7 +39,7 @@ m_pcb_width = 21;
 m_pcb_width_sirsi = 22;
 m_pcb_length = 30;
 
-INd = 20;
+INd = 50;
 
 
 module body_r(){
@@ -72,10 +72,10 @@ module body_r(){
         
 				translate([sila_pcb/2, -(6.5+0.4)/2, -stena_hlava-CLEAR]) cube([2.5+0.2, 6.5+0.4, stena_hlava+2*CLEAR]);                      // USB konektor díra
         
-				translate([-sila_pcb/2,-m_pcb_width/2, 0]) cube([sila_pcb, m_pcb_width, hlava_vyska+telo_vyska+CLEAR+10]);                // Drazka na PCB
+				translate([-sila_pcb/2,-m_pcb_width/2, 0]) cube([sila_pcb, m_pcb_width, hlava_vyska+telo_vyska+CLEAR+10]);                                                                      // Drazka na PCB
 				translate([-sila_prb_sirsi/2,-m_pcb_width_sirsi/2, m_pcb_length+5]) cube([sila_prb_sirsi, m_pcb_width_sirsi, hlava_vyska+telo_vyska+CLEAR+10]);                // Drazka na PCB prechod
                 hull(){
-                    translate([-sila_pcb/2,-m_pcb_width/2, m_pcb_length]) cube([sila_pcb, m_pcb_width, 0.1]);                // Drazka na PCB
+                    translate([-sila_pcb/2,-m_pcb_width/2, m_pcb_length]) cube([sila_pcb, m_pcb_width, 0.1]);                                                   // Drazka na PCB
                     translate([-sila_prb_sirsi/2,-m_pcb_width_sirsi/2, m_pcb_length+5]) cube([sila_prb_sirsi, m_pcb_width_sirsi, 0.1]);                // Drazka na PCB prechod
                     }
 				//translate([0,sila_pcb-led_mezera, 0]) cube([m_pcb_width/2,sila_pcb+led_mezera,hlava_vyska+telo_vyska+CLEAR+10]);
@@ -89,6 +89,7 @@ module body_r(){
                     }
                     cylinder (hlava_vyska, r_telo_in+perimeter, r_telo_in+perimeter);
                 }
+                // translate([4.75,0, 5]) cylinder(150, 5, 5);
 				//#intersection(){
 					//translate([0,0, CLEAR]) cylinder(hlava_vyska+CLEAR,r_telo_in-CLEAR,r_telo_in-CLEAR);
 					//union(){
@@ -163,11 +164,11 @@ module plast(){
 //color([1,0.5,0.5]) translate([0,0,110]) plast();
 
 
-//body();
+body();
 //body_r();
 
 //translate([0,50,0]) body_r();
 
-translate([0,-50,0]) plast();
+//translate([0,-50,0]) plast();
 
 //translate([30,0,0]) cap();
