@@ -2,10 +2,12 @@
 use <Thread_Library.scad>
 
 
-$fn=200;
+$fn=10;
 
 CLEAR = 0.05;
 perimeter = 0.43;
+
+text2 = "jmeno";
 
 stena_hl = 2;
 stena_hlava = 1; // spodni stena u usb
@@ -146,9 +148,9 @@ module cap(){
 }
 
 
-module plast(){
-	difference(){
-		translate([0,0,CLEAR]) cylinder(telo_vyska-2*CLEAR,r_plast_out,r_plast_out, $fn=6);
+module plast(text1, text2){
+	rotate([0,0,360/6/2]) difference(){
+		translate([0,0,CLEAR]) cylinder(telo_vyska-2*CLEAR, r_plast_out, r_plast_out, $fn=6);
 		cylinder(telo_vyska,r_plast_in, r_plast_in);
 		for(a=[0:6]){
 			rotate([0,0,a*(360/6)]) translate([0,r_hlava_out*2.4,0]) cylinder(100, r_hlava_out*1.25, r_hlava_out*1.25);
@@ -156,6 +158,9 @@ module plast(){
 		translate([0, 0, telo_vyska]) rotate_extrude(convexity=10) translate([r_hlava_out*2,0,0]) circle(r_hlava_out);
 		translate([     0,   0,   0]) rotate_extrude(convexity=10) translate([r_hlava_out*2,0,0]) circle(r_hlava_out);
 	}
+    translate([r_plast_out-5,0,telo_vyska/2]) rotate([0,90,0]) linear_extrude(height = 2)  text(text1, halign="center", valign="center", size=9 );
+    translate([-(r_plast_out-5),0,telo_vyska/2]) rotate([0,90,180]) linear_extrude(height = 2) text(text2, halign="center", valign="center", size=9 );
+
 }
 
 
@@ -164,11 +169,11 @@ module plast(){
 //color([1,0.5,0.5]) translate([0,0,110]) plast();
 
 
-body();
+//body();
 //body_r();
 
 //translate([0,50,0]) body_r();
 
-//translate([0,-50,0]) plast();
+translate([0,-50,0]) plast("Expa '16", text2);
 
 //translate([30,0,0]) cap();
