@@ -1,18 +1,15 @@
-### Renderovani
-
-Renderovani se jmenem pujde tak, ze python bude mit pole se jmeny a bude spouset program 'openscad' jako popen s parametrem -D predavajici promene jmeno na obalce.
-Asi to bude docela trvat (i tak to bude rychlejsi nez tisk) ... Ale nejdrive bude potreba dobre nastavit velikost obalky k tělu baterky a k tiskarne.
-
-### Mechanické úpravy
-
-* přidat těsnění  (O-kroužek pro zamezení průniku vlhkosti do pouzdra)
-* SMD LED na PCB překrýt jedním perimetrem tištěného perimetru z pouzdra, nebo izolepou, aby LED a elektronika byla chraněna před vlhkostí.
-
 ### LED regulátor
-Má nízkou účinsot a není známá přesná příčina. Možné závady: 
-* Problém s layoutem PCB
-* špatné vedení země
-* nekvalitně přiletovaná LED.
-* Nevhodné hodnoty součástek, indukčnosti, kapacity. 
+Najít účinnější regulátor proudu LED než linearizace resistorem
 
 
+### Úpravy PCB
+
+  * Zvětšit plošky pro LED, tak aby se při letování netrhaly z PCB. Mírně zvětšit vrtaný otvor. 
+  * Vedení spojů upravit tak, aby byly dimenzované na spínané proudy. 
+  * Opravit název strany s potiskem. 
+
+
+### Osazování 
+  * USB konektor se musí osazovat na rozlámaný panel. (hrana konektoru přečnívá přes plochu PCB a konektor se tím zvedá)
+  * Indikační LED se osazuje, tak aby svítila z vrchní strany součástek, ne skrz otvor.
+  * Červená LED se osazuje z druhé strany až přímo na plochu PCB. 

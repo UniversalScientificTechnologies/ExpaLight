@@ -1,3 +1,5 @@
+[![Join the chat at https://gitter.im/expediceupice/ExpaLight](https://badges.gitter.im/expediceupice/ExpaLight.svg)](https://gitter.im/expediceupice/ExpaLight?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 # ExpaLight
 Super-capacitor based LED red light for astronomical observations. The main intended use is for the observing nights at summer astronomical school at Upice observatory.
 
@@ -7,7 +9,7 @@ Astronomers need red light flashlight because it does not destroy dark adaptatio
 
 * Repairable design with 3D printed chassis
 * Do not need batteries 
-* Could be charged by standard smart-phone charger or by a computer in few seconds
+* Could be charged by standard smart-phone charger or by a computer USB port in few seconds
 * It is robustness and almost waterproof
 
 ## Do this flashlight needs to be turned off?
