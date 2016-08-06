@@ -2,12 +2,12 @@
 use <Thread_Library.scad>
 
 
-$fn=10;
+$fn=200;
 
 CLEAR = 0.05;
 perimeter = 0.43;
 
-text2 = "jmeno";
+text2 = "";
 
 stena_hl = 2;
 stena_hlava = 1; // spodni stena u usb
@@ -45,15 +45,14 @@ INd = 50;
 
 
 module body_r(){
-
     //cylinder(m_pcb_bottom,r_telo_in,r_telo_in);
     //translate([0,0,m_pcb_top]) #cylinder((telo_vyska-telo_vyska_zavit)-m_pcb_top,r_telo_in,r_telo_in);
     //translate([0,0,telo_vyska-telo_vyska_zavit-CLEAR]) cylinder(telo_vyska_zavit+10+CLEAR*2,r_telo_in_min+1,r_telo_in_min +1); // Nahradit závitem
 	 //translate([0,0,telo_vyska-telo_vyska_zavit-CLEAR]) cylinder(telo_vyska_zavit+CLEAR*2,r_telo_in+1,r_telo_in+1); // Nahradit závitem
 
-	translate([0,0,telo_vyska-telo_vyska_zavit-CLEAR-5]){
+	translate([0,0,telo_vyska-telo_vyska_zavit-CLEAR-10]){
 		trapezoidThread(
-			length=telo_vyska_zavit+CLEAR+10,		// axial length of the threaded rod 
+			length=telo_vyska_zavit+CLEAR+15,		// axial length of the threaded rod 
 			pitch=5, 						// axial distance from crest to crest
 			pitchRadius=r_zavit, 		// radial distance from center to mid-profile
 			threadHeightToPitch=0.5, 		// ratio between the height of the profile and the pitch 
@@ -72,7 +71,7 @@ module body_r(){
 				//rotate([0,90,0]) translate([-led_posun,0,5+r_hlava_out/3]) cylinder(r_hlava_out/2 ,led_dira, led_dira*2);
 				//rotate([90,0,0]) translate([0,18,-r_hlava_out]) cylinder(r_hlava_out*2 ,1/2, 1/2);                                                                // dira pro zajisteni
         
-				translate([sila_pcb/2, -(6.5+0.4)/2, -stena_hlava-CLEAR]) cube([2.5+0.2, 6.5+0.4, stena_hlava+2*CLEAR]);                      // USB konektor díra
+				translate([-2*sila_pcb, -(6.5+0.4)/2, -stena_hlava-CLEAR]) cube([2.5+0.2, 6.5+0.4, stena_hlava+2*CLEAR]);                      // USB konektor díra
         
 				translate([-sila_pcb/2,-m_pcb_width/2, 0]) cube([sila_pcb, m_pcb_width, hlava_vyska+telo_vyska+CLEAR+10]);                                                                      // Drazka na PCB
 				translate([-sila_prb_sirsi/2,-m_pcb_width_sirsi/2, m_pcb_length+5]) cube([sila_prb_sirsi, m_pcb_width_sirsi, hlava_vyska+telo_vyska+CLEAR+10]);                // Drazka na PCB prechod
@@ -89,7 +88,7 @@ module body_r(){
                         rotate([0,90,0]) translate([-led_posun,0,m_pcb_width/2+perimeter]) cylinder(r_hlava_out ,led_dira, led_dira);
                         translate([r_plast_out-led_koule_zanoreni, 0, led_posun]) resize(newsize=[1.5*led_koule,1*led_koule,1*led_koule]) sphere(led_koule);   // Koule (elipsoid) jako parabola pro led
                     }
-                    cylinder (hlava_vyska, r_telo_in+perimeter, r_telo_in+perimeter);
+                    //cylinder (hlava_vyska, r_telo_in+perimeter, r_telo_in+perimeter);
                 }
                 // translate([4.75,0, 5]) cylinder(150, 5, 5);
 				//#intersection(){
@@ -124,7 +123,7 @@ module cap(){
 	union(){
 		translate([0,0,telo_vyska_zavit-1]) cylinder(stena_hlava, r_hlava_out,r_hlava_out);
 		intersection(){
-		translate([0,0,0]) trapezoidThread(
+		/*translate([0,0,0]) trapezoidThread(
 			length=telo_vyska_zavit-CLEAR+5,		// axial length of the threaded rod 
 			pitch=5, 						// axial distance from crest to crest
 			pitchRadius=r_zavit-0.5, 		// radial distance from center to mid-profile
@@ -138,11 +137,12 @@ module cap(){
 			clearance=0.1, 					// radial clearance, normalized to thread height
 			backlash=0.1, 					// axial clearance, normalized to pitch
 			stepsPerTurn=64 				// number of slices to create per turn
-		);
+		);*/
 			cylinder(telo_vyska_zavit,30,30);
 		}
 	}union(){
 		translate([0,0,-CLEAR]) cylinder(telo_vyska_zavit-stena_hl ,r_telo_in_min*3/4,r_telo_in_min*3/4);
+        //translate([0,-8, telo_vyska_zavit-0.2]) rotate([0,0,0]) linear_extrude(height = 0.25) text("IP11", halign="center", valign="center", size=4 );
 	}
 	}
 }
