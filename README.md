@@ -3,6 +3,8 @@
 # ExpaLight
 Super-capacitor based LED red light for astronomical observations. The main intended use is for the observing nights at summer astronomical school at Upice observatory.
 
+![ExpaLight](DOC/expaLight_small.jpg?raw=true "ExpaLight")
+
 ## What are the benefits of using this flashlight?
 
 Astronomers need red light flashlight because it does not destroy dark adaptation of the human eye.
