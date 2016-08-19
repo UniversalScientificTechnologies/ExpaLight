@@ -1,7 +1,7 @@
 (export (version D)
   (design
-    (source /home/kaklik/repos/ExpaLight/SCH_PCB/CAPLIGHT01A/CAPLIGHT01A.sch)
-    (date Pá 19. srpen 2016, 09:56:50 CEST)
+    (source /home/kaklik/repos/ExpaLight/SCH_PCB/CAPLIGHT01B/CAPLIGHT01B.sch)
+    (date Pá 19. srpen 2016, 10:03:26 CEST)
     (tool "Eeschema 4.1.0-alpha+201608181240+7066~46~ubuntu16.04.1-product")
     (sheet (number 1) (name /) (tstamps /)
       (title_block
@@ -9,7 +9,7 @@
         (company)
         (rev)
         (date)
-        (source CAPLIGHT01A.sch)
+        (source CAPLIGHT01B.sch)
         (comment (number 1) (value ""))
         (comment (number 2) (value ""))
         (comment (number 3) (value ""))
@@ -18,13 +18,13 @@
     (comp (ref J1)
       (value JUMP_3X2)
       (footprint Mlab_Pin_Headers:Straight_2x03)
-      (libsource (lib CAPLIGHT01A-cache) (part JUMP_3X2))
+      (libsource (lib CAPLIGHT01B-cache) (part JUMP_3X2))
       (sheetpath (names /) (tstamps /))
       (tstamp 56E81073))
     (comp (ref D1)
       (value M4)
       (footprint Mlab_D:SMA_Standard)
-      (libsource (lib CAPLIGHT01A-cache) (part DIODE))
+      (libsource (lib CAPLIGHT01B-cache) (part DIODE))
       (sheetpath (names /) (tstamps /))
       (tstamp 56E8111C))
     (comp (ref C1)
@@ -78,7 +78,7 @@
     (comp (ref U1)
       (value LTC3625)
       (footprint Mlab_IO:DFN-12-1EP_3x4mm_Pitch0.5mm)
-      (libsource (lib CAPLIGHT01A-cache) (part LTC3625))
+      (libsource (lib CAPLIGHT01B-cache) (part LTC3625))
       (sheetpath (names /) (tstamps /))
       (tstamp 56E80FC2))
     (comp (ref R1)
@@ -130,7 +130,7 @@
       (pins
         (pin (num 1) (name ~) (type passive))
         (pin (num 2) (name ~) (type passive))))
-    (libpart (lib CAPLIGHT01A-cache) (part DIODE)
+    (libpart (lib CAPLIGHT01B-cache) (part DIODE)
       (footprints
         (fp D?)
         (fp S*))
@@ -150,7 +150,7 @@
       (pins
         (pin (num 1) (name 1) (type input))
         (pin (num 2) (name 2) (type input))))
-    (libpart (lib CAPLIGHT01A-cache) (part JUMP_3X2)
+    (libpart (lib CAPLIGHT01B-cache) (part JUMP_3X2)
       (fields
         (field (name Reference) J)
         (field (name Value) JUMP_3X2))
@@ -171,7 +171,7 @@
       (pins
         (pin (num 1) (name K) (type passive))
         (pin (num 2) (name A) (type passive))))
-    (libpart (lib CAPLIGHT01A-cache) (part LTC3625)
+    (libpart (lib CAPLIGHT01B-cache) (part LTC3625)
       (fields
         (field (name Reference) U)
         (field (name Value) LTC3625))
@@ -219,8 +219,8 @@
       (uri /usr/share/kicad/library/device.lib))
     (library (logical conn)
       (uri /usr/share/kicad/library/conn.lib))
-    (library (logical CAPLIGHT01A-cache)
-      (uri /home/kaklik/repos/ExpaLight/SCH_PCB/CAPLIGHT01A/CAPLIGHT01A-cache.lib)))
+    (library (logical CAPLIGHT01B-cache)
+      (uri /home/kaklik/repos/ExpaLight/SCH_PCB/CAPLIGHT01B/CAPLIGHT01B-cache.lib)))
   (nets
     (net (code 1) (name GND)
       (node (ref C3) (pin 2))
