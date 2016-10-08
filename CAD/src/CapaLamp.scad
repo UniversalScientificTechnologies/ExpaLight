@@ -17,7 +17,7 @@ r_telo_out = r_telo_in + stena_hl;
 
 r_zavit = r_telo_in;
 
-r_plast_in = r_telo_out + 0.1;
+r_plast_in = r_telo_out + 0.5;
 r_plast_out = r_plast_in + 8;
 
 telo_vyska = 80;
@@ -119,14 +119,23 @@ module body(){
 }
 
 module cap(){
+    zavit = r_zavit - 1;
+    echo ("######################################");
+    echo ("######################################");
+    echo("---------------------------------- VICKO ----------------------------------------");
+    echo ("Tloustka spodni steny vicka", stena_hlava);
+    echo ("vyska zavitu vicka", (telo_vyska_zavit-CLEAR+5-stena_hlava));
+    echo ("r zavitu", zavit);
+    echo ("r vicka", r_hlava_out);
+    echo ("######################################");
 	difference(){
 	union(){
 		translate([0,0,telo_vyska_zavit-1]) cylinder(stena_hlava, r_hlava_out,r_hlava_out);
 		intersection(){
-		/*translate([0,0,0]) trapezoidThread(
-			length=telo_vyska_zavit-CLEAR+5,		// axial length of the threaded rod 
+		translate([0,0,stena_hlava]) trapezoidThread(
+			length=telo_vyska_zavit-CLEAR+5-stena_hlava,		// axial length of the threaded rod 
 			pitch=5, 						// axial distance from crest to crest
-			pitchRadius=r_zavit-0.5, 		// radial distance from center to mid-profile
+			pitchRadius=zavit, 		// radial distance from center to mid-profile
 			threadHeightToPitch=0.5, 		// ratio between the height of the profile and the pitch 
 											// std value for Acme or metric lead screw is 0.5
 			profileRatio=0.5, 				// ratio between the lengths of the raised part of the profile and the pitch
@@ -137,11 +146,11 @@ module cap(){
 			clearance=0.1, 					// radial clearance, normalized to thread height
 			backlash=0.1, 					// axial clearance, normalized to pitch
 			stepsPerTurn=64 				// number of slices to create per turn
-		);*/
+		);
 			cylinder(telo_vyska_zavit,30,30);
 		}
 	}union(){
-		translate([0,0,-CLEAR]) cylinder(telo_vyska_zavit-stena_hl ,r_telo_in_min*3/4,r_telo_in_min*3/4);
+		//translate([0,0,-CLEAR]) cylinder(telo_vyska_zavit-stena_hl ,r_telo_in_min*3/4-1,r_telo_in_min*3/4);
         //translate([0,-8, telo_vyska_zavit-0.2]) rotate([0,0,0]) linear_extrude(height = 0.25) text("IP11", halign="center", valign="center", size=4 );
 	}
 	}
@@ -174,6 +183,10 @@ module plast(text1, text2){
 
 //translate([0,50,0]) body_r();
 
-translate([0,-50,0]) plast("Expa '16", text2);
+//translate([0,-50,0]) plast("", text2);
 
-//translate([30,0,0]) cap();
+
+
+body();
+//plast("", text2);
+//rotate([0,180,0]) cap();
