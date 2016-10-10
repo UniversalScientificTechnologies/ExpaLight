@@ -1,5 +1,6 @@
 //include <polyScrewThread_r1.scad>
 use <Thread_Library.scad>
+use <MLAB_logo.scad>
 
 
 $fn=200;
@@ -162,13 +163,14 @@ module plast(text1, text2){
 		translate([0,0,CLEAR]) cylinder(telo_vyska-2*CLEAR, r_plast_out, r_plast_out, $fn=6);
 		cylinder(telo_vyska,r_plast_in, r_plast_in);
 		for(a=[0:6]){
-			rotate([0,0,a*(360/6)]) translate([0,r_hlava_out*2.4,0]) cylinder(100, r_hlava_out*1.25, r_hlava_out*1.25);
+			rotate([0,0,a*(360/6)]) translate([0,r_hlava_out*2.375,0]) cylinder(100, r_hlava_out*1.25, r_hlava_out*1.25);
 		}
 		translate([0, 0, telo_vyska]) rotate_extrude(convexity=10) translate([r_hlava_out*2,0,0]) circle(r_hlava_out);
 		translate([     0,   0,   0]) rotate_extrude(convexity=10) translate([r_hlava_out*2,0,0]) circle(r_hlava_out);
 	}
-    translate([r_plast_out-5,0,telo_vyska/2]) rotate([0,90,0]) linear_extrude(height = 2)  text(text1, halign="center", valign="center", size=9 );
-    translate([-(r_plast_out-5),0,telo_vyska/2]) rotate([0,90,180]) linear_extrude(height = 2) text(text2, halign="center", valign="center", size=9 );
+    translate([r_plast_out-5-0.5,0,telo_vyska/2]) rotate([0,90,0]) linear_extrude(height = 2)  text(text1, halign="center", valign="center", size=8 );
+    translate([-(r_plast_out-5)+1.2,0,telo_vyska/2]) rotate([0,90,180]) linear_extrude(height = 2) text(text2, halign="center", valign="center", size=8 );
+    translate([-r_plast_out+5+1.25,0,telo_vyska/2]) rotate([0,90,180]) scale([0.15,0.15,0.6]) MLAB_logo_short();
 
 }
 
@@ -187,6 +189,6 @@ module plast(text1, text2){
 
 
 
-body();
-//plast("", text2);
+//body();
+plast("ExpaLight", text2);
 //rotate([0,180,0]) cap();
