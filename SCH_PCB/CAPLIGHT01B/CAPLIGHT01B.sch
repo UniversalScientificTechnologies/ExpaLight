@@ -9,7 +9,6 @@ LIBS:74xx
 LIBS:cmos4000
 LIBS:adc-dac
 LIBS:memory
-LIBS:xilinx
 LIBS:microcontrollers
 LIBS:dsp
 LIBS:microchip
@@ -28,7 +27,7 @@ LIBS:opto
 LIBS:atmel
 LIBS:contrib
 LIBS:valves
-LIBS:CAPLIGHT01A-cache
+LIBS:CAPLIGHT01B-cache
 EELAYER 25 0
 EELAYER END
 $Descr A4 11693 8268
@@ -82,7 +81,7 @@ U 1 1 56E812E5
 P 7850 3550
 F 0 "C3" H 7875 3650 50  0000 L CNN
 F 1 "50F" H 7875 3450 50  0000 L CNN
-F 2 "Mlab_C:C_Radial_D18_L25_P7.5" H 7888 3400 50  0001 C CNN
+F 2 "Mlab_C:C_Radial_D18_L25_P7.5_BAT" H 7888 3400 50  0001 C CNN
 F 3 "" H 7850 3550 50  0000 C CNN
 	1    7850 3550
 	1    0    0    -1  

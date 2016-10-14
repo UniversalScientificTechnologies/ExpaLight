@@ -1,8 +1,8 @@
 (export (version D)
   (design
-    (source /home/kaklik/repos/ExpaLight/SCH_PCB/CAPLIGHT01B/CAPLIGHT01B.sch)
-    (date Pá 19. srpen 2016, 10:03:26 CEST)
-    (tool "Eeschema 4.1.0-alpha+201608181240+7066~46~ubuntu16.04.1-product")
+    (source C:\Chroust\Zaloha\stare\MLAB-project\ExpaLight\SCH_PCB\CAPLIGHT01B\CAPLIGHT01B.sch)
+    (date "14. 10. 2016 9:02:16")
+    (tool "Eeschema (2016-09-17 revision 679eef1)-makepkg")
     (sheet (number 1) (name /) (tstamps /)
       (title_block
         (title)
@@ -35,7 +35,7 @@
       (tstamp 56E8119A))
     (comp (ref C3)
       (value 50F)
-      (footprint Mlab_C:C_Radial_D18_L25_P7.5)
+      (footprint Mlab_C:C_Radial_D18_L25_P7.5_BAT)
       (libsource (lib device) (part CP))
       (sheetpath (names /) (tstamps /))
       (tstamp 56E812E5))
@@ -215,12 +215,12 @@
         (pin (num 5) (name GND) (type power_in))
         (pin (num 6) (name shield) (type passive)))))
   (libraries
-    (library (logical device)
-      (uri /usr/share/kicad/library/device.lib))
-    (library (logical conn)
-      (uri /usr/share/kicad/library/conn.lib))
     (library (logical CAPLIGHT01B-cache)
-      (uri /home/kaklik/repos/ExpaLight/SCH_PCB/CAPLIGHT01B/CAPLIGHT01B-cache.lib)))
+      (uri C:\Chroust\Zaloha\stare\MLAB-project\ExpaLight\SCH_PCB\CAPLIGHT01B\CAPLIGHT01B-cache.lib))
+    (library (logical device)
+      (uri C:\KiCad\share\kicad\library\device.lib))
+    (library (logical conn)
+      (uri C:\KiCad\share\kicad\library\conn.lib)))
   (nets
     (net (code 1) (name GND)
       (node (ref C3) (pin 2))
