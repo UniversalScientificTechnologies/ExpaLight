@@ -42,6 +42,8 @@ m_pcb_width = 21;
 m_pcb_width_sirsi = 22;
 m_pcb_length = 30;
 
+stena_vicko = 5;
+
 INd = 50;
 
 
@@ -124,17 +126,17 @@ module cap(){
     echo ("######################################");
     echo ("######################################");
     echo("---------------------------------- VICKO ----------------------------------------");
-    echo ("Tloustka spodni steny vicka", stena_hlava);
-    echo ("vyska zavitu vicka", (telo_vyska_zavit-CLEAR+5-stena_hlava));
+    echo ("Tloustka spodni steny vicka", stena_vicko);
+    echo ("vyska zavitu vicka", (telo_vyska_zavit-CLEAR+5-stena_vicko));
     echo ("r zavitu", zavit);
     echo ("r vicka", r_hlava_out);
     echo ("######################################");
 	difference(){
 	union(){
-		translate([0,0,telo_vyska_zavit-1]) cylinder(stena_hlava, r_hlava_out,r_hlava_out);
+		translate([0,0,telo_vyska_zavit-1]) cylinder(stena_vicko, r_hlava_out,r_hlava_out);
 		intersection(){
 		translate([0,0,stena_hlava]) trapezoidThread(
-			length=telo_vyska_zavit-CLEAR+5-stena_hlava,		// axial length of the threaded rod 
+			length=telo_vyska_zavit-CLEAR+5-stena_vicko,		// axial length of the threaded rod 
 			pitch=5, 						// axial distance from crest to crest
 			pitchRadius=zavit, 		// radial distance from center to mid-profile
 			threadHeightToPitch=0.5, 		// ratio between the height of the profile and the pitch 
@@ -151,6 +153,7 @@ module cap(){
 			cylinder(telo_vyska_zavit,30,30);
 		}
 	}union(){
+        translate([0,0,3]) cube([8,8,4], center=true); // dira pro pruzinu
 		//translate([0,0,-CLEAR]) cylinder(telo_vyska_zavit-stena_hl ,r_telo_in_min*3/4-1,r_telo_in_min*3/4);
         //translate([0,-8, telo_vyska_zavit-0.2]) rotate([0,0,0]) linear_extrude(height = 0.25) text("IP11", halign="center", valign="center", size=4 );
 	}
@@ -190,5 +193,5 @@ module plast(text1, text2){
 
 
 //body();
-plast("ExpaLight", text2);
-//rotate([0,180,0]) cap();
+//plast("ExpaLight", text2);
+rotate([0,180,0]) cap();
