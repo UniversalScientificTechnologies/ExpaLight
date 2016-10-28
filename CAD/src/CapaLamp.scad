@@ -121,8 +121,17 @@ module body(){
 	}
 }
 
+
+module head_modificator(){
+    translate([0,0,-(hlava_vyska+stena_hlava)]) cylinder(hlava_vyska+stena_hlava+1, r_hlava_out+1, r_hlava_out+1);
+}
+
+module body_modificator(){
+    translate([0,0,1]) cylinder(telo_vyska+1,r_telo_out+1,r_telo_out+1);
+}
+
 module cap(){
-    zavit = r_zavit - 1;
+    zavit = r_zavit - 0.6;
     echo ("######################################");
     echo ("######################################");
     echo("---------------------------------- VICKO ----------------------------------------");
@@ -135,30 +144,33 @@ module cap(){
 	union(){
 		translate([0,0,telo_vyska_zavit-1]) cylinder(stena_vicko, r_hlava_out,r_hlava_out);
 		intersection(){
-		translate([0,0,stena_hlava]) trapezoidThread(
-			length=telo_vyska_zavit-CLEAR+5-stena_vicko,		// axial length of the threaded rod 
-			pitch=5, 						// axial distance from crest to crest
-			pitchRadius=zavit, 		// radial distance from center to mid-profile
-			threadHeightToPitch=0.5, 		// ratio between the height of the profile and the pitch 
-											// std value for Acme or metric lead screw is 0.5
-			profileRatio=0.5, 				// ratio between the lengths of the raised part of the profile and the pitch
-											// std value for Acme or metric lead screw is 0.5
-			threadAngle=30,					// angle between the two faces of the thread 
-											// std value for Acme is 29 or for metric lead screw is 30
-			RH=true, 						// true/false the thread winds clockwise looking along shaft, i.e.follows the Right Hand Rule
-			clearance=0.1, 					// radial clearance, normalized to thread height
-			backlash=0.1, 					// axial clearance, normalized to pitch
-			stepsPerTurn=64 				// number of slices to create per turn
-		);
+            translate([0,0,stena_hlava])
+                trapezoidThread(
+                    length=telo_vyska_zavit-CLEAR+5-stena_vicko,		// axial length of the threaded rod 
+                    pitch=5, 						// axial distance from crest to crest
+                    pitchRadius=zavit, 		// radial distance from center to mid-profile
+                    threadHeightToPitch=0.5, 		// ratio between the height of the profile and the pitch 
+                                                    // std value for Acme or metric lead screw is 0.5
+                    profileRatio=0.5, 				// ratio between the lengths of the raised part of the profile and the pitch
+                                                    // std value for Acme or metric lead screw is 0.5
+                    threadAngle=30,					// angle between the two faces of the thread 
+                                                    // std value for Acme is 29 or for metric lead screw is 30
+                    RH=true, 						// true/false the thread winds clockwise looking along shaft, i.e.follows the Right Hand Rule
+                    clearance=0.1, 					// radial clearance, normalized to thread height
+                    backlash=0.1, 					// axial clearance, normalized to pitch
+                    stepsPerTurn=20 				// number of slices to create per turn
+                );
 			cylinder(telo_vyska_zavit,30,30);
 		}
 	}union(){
-        translate([0,0,3]) cube([8,8,4], center=true); // dira pro pruzinu
-		//translate([0,0,-CLEAR]) cylinder(telo_vyska_zavit-stena_hl ,r_telo_in_min*3/4-1,r_telo_in_min*3/4);
+        //translate([0,0,3]) cube([8,8,4], center=true); // dira pro pruzinu
+		translate([0,0,-CLEAR]) cylinder(telo_vyska_zavit-stena_hl ,r_telo_in_min*3/4-1,r_telo_in_min*3/4-1);
         //translate([0,-8, telo_vyska_zavit-0.2]) rotate([0,0,0]) linear_extrude(height = 0.25) text("IP11", halign="center", valign="center", size=4 );
 	}
 	}
 }
+
+
 
 
 module plast(text1, text2){
@@ -171,9 +183,9 @@ module plast(text1, text2){
 		translate([0, 0, telo_vyska]) rotate_extrude(convexity=10) translate([r_hlava_out*2,0,0]) circle(r_hlava_out);
 		translate([     0,   0,   0]) rotate_extrude(convexity=10) translate([r_hlava_out*2,0,0]) circle(r_hlava_out);
 	}
-    translate([r_plast_out-5-0.5,0,telo_vyska/2]) rotate([0,90,0]) linear_extrude(height = 2)  text(text1, halign="center", valign="center", size=8 );
+    translate([r_plast_out-5-0.8,0,telo_vyska/2]) rotate([0,90,0]) linear_extrude(height = 2)  text(text1, halign="center", valign="center", size=8 );
     translate([-(r_plast_out-5)+1.2,0,telo_vyska/2]) rotate([0,90,180]) linear_extrude(height = 2) text(text2, halign="center", valign="center", size=8 );
-    translate([-r_plast_out+5+1.25,0,telo_vyska/2]) rotate([0,90,180]) scale([0.15,0.15,0.6]) MLAB_logo_short();
+    translate([-r_plast_out+5+1.25,0,telo_vyska/2]) rotate([0,90,180]) scale([0.15,0.15,0.52]) MLAB_logo_short();
 
 }
 
@@ -190,8 +202,9 @@ module plast(text1, text2){
 
 //translate([0,-50,0]) plast("", text2);
 
-
+//head_modificator();
+//body_modificator();
 
 //body();
-//plast("ExpaLight", text2);
-rotate([0,180,0]) cap();
+plast("ExpaLight", text2);
+//rotate([0,180,0]) cap();
