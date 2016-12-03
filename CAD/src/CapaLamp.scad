@@ -163,8 +163,8 @@ module cap(){
 			cylinder(telo_vyska_zavit,30,30);
 		}
 	}union(){
-        //translate([0,0,3]) cube([8,8,4], center=true); // dira pro pruzinu
-		translate([0,0,-CLEAR]) cylinder(telo_vyska_zavit-stena_hl ,r_telo_in_min*3/4-1,r_telo_in_min*3/4-1);
+        translate([0,0,3]) cube([8,8,4], center=true); // dira pro pruzinu
+		//translate([0,0,-CLEAR]) cylinder(telo_vyska_zavit-stena_hl ,r_telo_in_min*3/4-1,r_telo_in_min*3/4-1);
         //translate([0,-8, telo_vyska_zavit-0.2]) rotate([0,0,0]) linear_extrude(height = 0.25) text("IP11", halign="center", valign="center", size=4 );
 	}
 	}
@@ -206,5 +206,5 @@ module plast(text1, text2){
 //body_modificator();
 
 //body();
-plast("ExpaLight", text2);
-//rotate([0,180,0]) cap();
+//plast("ExpaLight", text2);
+rotate([0,180,0]) cap();
