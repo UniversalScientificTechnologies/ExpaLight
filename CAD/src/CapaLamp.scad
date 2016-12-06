@@ -164,7 +164,7 @@ module cap(){
 			cylinder(telo_vyska_zavit,30,30);
 		}
 	}union(){
-        translate([0,0,3]) cube([8,8,4], center=true); // dira pro pruzinu
+        translate([0,0,6]) cube([8,8,4+6], center=true); // dira pro pruzinu
 		//translate([0,0,-CLEAR]) cylinder(telo_vyska_zavit-stena_hl ,r_telo_in_min*3/4-1,r_telo_in_min*3/4-1);
         //translate([0,-8, telo_vyska_zavit-0.2]) rotate([0,0,0]) linear_extrude(height = 0.25) text("IP11", halign="center", valign="center", size=4 );
 	}
@@ -191,9 +191,18 @@ module plast(text1, text2){
 }
 
 module pruzinka(){
-    translate([1,0,7.5/2]) cube([5, 7.5, 7.5], center = true);
-    //translate([0,0,5]) cube([25,2,1]);
-    translate([5,0,0]) spring4(21, 4, 180+46, 1.2, 7.5, 100);
+    lenght = 25;
+    cube_lenght = 5+3;
+    cube_size = 7.5;
+    
+    difference(){
+        union(){
+            translate([-1,-cube_size/2,0]) cube([cube_lenght, cube_size, cube_size]);
+            translate([cube_lenght,0,0]) spring4(21, 4, 180+46, 1.2, 7.5, 100);
+            translate([lenght+1,-cube_size/2,0]) cube([1,cube_size,cube_size]);
+        }
+       translate([lenght+2,-10,0]) cube(20);
+    }
 }
 
 
