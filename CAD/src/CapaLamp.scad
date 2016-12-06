@@ -1,6 +1,7 @@
 //include <polyScrewThread_r1.scad>
 use <Thread_Library.scad>
 use <MLAB_logo.scad>
+use <spring.scad>
 
 
 $fn=200;
@@ -189,6 +190,12 @@ module plast(text1, text2){
 
 }
 
+module pruzinka(){
+    translate([1,0,7.5/2]) cube([5, 7.5, 7.5], center = true);
+    //translate([0,0,5]) cube([25,2,1]);
+    translate([5,0,0]) spring4(21, 4, 180+46, 1.2, 7.5, 100);
+}
+
 
 //translate([0,0,0]) body();
 //translate([0,0,220]) cap();
@@ -207,4 +214,5 @@ module plast(text1, text2){
 
 //body();
 //plast("ExpaLight", text2);
-rotate([0,180,0]) cap();
+//rotate([0,180,0]) cap();
+pruzinka();

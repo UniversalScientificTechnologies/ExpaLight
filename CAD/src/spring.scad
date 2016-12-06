@@ -60,4 +60,4 @@ module spring4(length, n, angle /* must be 180 <= angle <= 360 */, width, height
 }
 
 // With args from customizer.makerbot.com section above
-spring4(length, number_of_wiggles, angle, width, height, $fn=resolution);
+//spring4(length, number_of_wiggles, angle, width, height, $fn=resolution);
