@@ -199,10 +199,11 @@ module pruzinka(){
         union(){
             translate([-1,-cube_size/2,0]) cube([cube_lenght, cube_size, cube_size]);
             translate([cube_lenght,0,0]) spring4(21, 4, 180+46, 1.2, 7.5, 100);
-            translate([lenght+1,-cube_size/2,0]) cube([1,cube_size,cube_size]);
         }
        translate([lenght+2,-10,0]) cube(20);
+       translate([lenght,-1,0]) cube([5,2, cube_size]);
     }
+       translate([lenght+1,-cube_size/2,0]) cube([1,cube_size,cube_size]);
 }
 
 
