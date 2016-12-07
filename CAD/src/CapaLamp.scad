@@ -144,6 +144,7 @@ module cap(){
 	difference(){
 	union(){
 		translate([0,0,telo_vyska_zavit-1]) cylinder(stena_vicko, r_hlava_out,r_hlava_out);
+		translate([0,0,1]) cylinder(telo_vyska_zavit, 18/2,18/2);
 		intersection(){
             translate([0,0,stena_hlava])
                 trapezoidThread(
@@ -164,7 +165,7 @@ module cap(){
 			cylinder(telo_vyska_zavit,30,30);
 		}
 	}union(){
-        translate([0,0,6]) cube([8,8,4+6], center=true); // dira pro pruzinu
+        translate([-4,-4,0]) cube([8,8,telo_vyska_zavit]); // dira pro pruzinu
 		//translate([0,0,-CLEAR]) cylinder(telo_vyska_zavit-stena_hl ,r_telo_in_min*3/4-1,r_telo_in_min*3/4-1);
         //translate([0,-8, telo_vyska_zavit-0.2]) rotate([0,0,0]) linear_extrude(height = 0.25) text("IP11", halign="center", valign="center", size=4 );
 	}
@@ -192,8 +193,11 @@ module plast(text1, text2){
 
 module pruzinka(){
     lenght = 25;
-    cube_lenght = 5+3;
+    cube_lenght = telo_vyska_zavit-1;
     cube_size = 7.5;
+    
+    echo("delka kostky");
+    echo(cube_lenght);
     
     difference(){
         union(){
@@ -223,6 +227,6 @@ module pruzinka(){
 //body_modificator();
 
 //body();
-//plast("ExpaLight", text2);
+//plast("Petr Kůra", text2);
 //rotate([0,180,0]) cap();
 pruzinka();
