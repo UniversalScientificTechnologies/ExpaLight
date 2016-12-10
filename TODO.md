@@ -1,5 +1,17 @@
+
+### Tisknutelný model
+
+Srazit hrany na kterých při tisku stojí komponenty:
+
+ https://github.com/expediceupice/ExpaLight/blob/singleCapacitor/render/CapaLamp_body_200.stl
+ https://github.com/expediceupice/ExpaLight/blob/singleCapacitor/render/CapaLamp_cap.stl
+
+Zvážit posunutí výřezu pro PCB tak, aby kondenzátor nemusel mít nožičky ohnuté mimo svojí osu. 
+
+
+
 ### LED regulátor
-Najít účinnější regulátor proudu LED než linearizace resistorem
+Najít účinnější regulátor proudu LED než linearizace resistorem.
 
 ### Osazování 
   * USB konektor se musí osazovat na rozlámaný panel. (hrana konektoru přečnívá přes plochu PCB a konektor se tím zvedá)
