@@ -28,7 +28,7 @@ telo_vyska_zavit = 10;
 hlava_vyska = 15;
 r_hlava_out = r_telo_out + 1.75;
 
-led_dira = 3;
+led_dira = 3.5;
 led_koule = 10;
 led_koule_zanoreni = 3;
 led_posun = 9;
@@ -65,7 +65,7 @@ module body_r(){
 			RH=true, 						// true/false the thread winds clockwise looking along shaft, i.e.follows the Right Hand Rule
 			clearance=0.1, 					// radial clearance, normalized to thread height
 			backlash=0.1, 					// axial clearance, normalized to pitch
-			stepsPerTurn=20 				// number of slices to create per turn
+			stepsPerTurn=50 				// number of slices to create per turn
 		);
 	}
 
@@ -75,7 +75,7 @@ module body_r(){
 				//rotate([0,90,0]) translate([-led_posun,0,5+r_hlava_out/3]) cylinder(r_hlava_out/2 ,led_dira, led_dira*2);
 				//rotate([90,0,0]) translate([0,18,-r_hlava_out]) cylinder(r_hlava_out*2 ,1/2, 1/2);                                                                // dira pro zajisteni
         
-				translate([-2*sila_pcb, -(6.5+0.4)/2, -stena_hlava-CLEAR]) cube([2.5+0.2, 6.5+0.4, stena_hlava+2*CLEAR]);                      // USB konektor díra
+				translate([-2*sila_pcb, -7/2, -stena_hlava-CLEAR]) cube([3, 7, stena_hlava+2*CLEAR]);                      // USB konektor díra
         
 				translate([-sila_pcb/2,-m_pcb_width/2, 0]) cube([sila_pcb, m_pcb_width, hlava_vyska+telo_vyska+CLEAR+10]);                                                                      // Drazka na PCB
 				translate([-sila_prb_sirsi/2,-m_pcb_width_sirsi/2, m_pcb_length+5]) cube([sila_prb_sirsi, m_pcb_width_sirsi, hlava_vyska+telo_vyska+CLEAR+10]);                // Drazka na PCB prechod
@@ -89,7 +89,7 @@ module body_r(){
         // okenko pro led
                 difference(){
                     union(){
-                        rotate([0,90,0]) translate([-led_posun,0,m_pcb_width/2+perimeter]) cylinder(r_hlava_out ,led_dira, led_dira);
+                        rotate([0,90,0]) translate([-led_posun,0,0]) cylinder(r_hlava_out ,led_dira, led_dira);
                         translate([r_plast_out-led_koule_zanoreni, 0, led_posun]) resize(newsize=[1.5*led_koule,1*led_koule,1*led_koule]) sphere(led_koule);   // Koule (elipsoid) jako parabola pro led
                     }
                     //cylinder (hlava_vyska, r_telo_in+perimeter, r_telo_in+perimeter);
@@ -113,9 +113,8 @@ module body_r(){
 module body(){
 	difference(){
 		union(){
-			translate([0,0,-hlava_vyska-stena_hlava+CLEAR]){
-				cylinder(hlava_vyska+stena_hlava, r_hlava_out, r_hlava_out);
-			}
+			translate([0,0,-hlava_vyska+CLEAR]) cylinder(hlava_vyska, r_hlava_out, r_hlava_out);
+			translate([0,0,-hlava_vyska-stena_hlava+CLEAR]) cylinder(stena_hlava, r_hlava_out-1, r_hlava_out);
 			cylinder(telo_vyska,r_telo_out,r_telo_out);
 		}
 		body_r();
@@ -143,7 +142,8 @@ module cap(){
     echo ("######################################");
 	difference(){
 	union(){
-		translate([0,0,telo_vyska_zavit-1]) cylinder(stena_vicko, r_hlava_out,r_hlava_out);
+		translate([0,0,telo_vyska_zavit-1]) cylinder(stena_vicko-1, r_hlava_out,r_hlava_out);
+		translate([0,0,stena_vicko+telo_vyska_zavit-2]) cylinder(1, r_hlava_out,r_hlava_out-1);
 		translate([0,0,1]) cylinder(telo_vyska_zavit, 18/2,18/2);
 		intersection(){
             translate([0,0,stena_hlava])
@@ -160,12 +160,12 @@ module cap(){
                     RH=true, 						// true/false the thread winds clockwise looking along shaft, i.e.follows the Right Hand Rule
                     clearance=0.1, 					// radial clearance, normalized to thread height
                     backlash=0.1, 					// axial clearance, normalized to pitch
-                    stepsPerTurn=20 				// number of slices to create per turn
+                    stepsPerTurn=50 				// number of slices to create per turn
                 );
 			cylinder(telo_vyska_zavit,30,30);
 		}
 	}union(){
-        translate([-4,-4,0]) cube([8,8,telo_vyska_zavit]); // dira pro pruzinu
+        translate([-4,-4,-1]) cube([8,8,telo_vyska_zavit]); // dira pro pruzinu
 		//translate([0,0,-CLEAR]) cylinder(telo_vyska_zavit-stena_hl ,r_telo_in_min*3/4-1,r_telo_in_min*3/4-1);
         //translate([0,-8, telo_vyska_zavit-0.2]) rotate([0,0,0]) linear_extrude(height = 0.25) text("IP11", halign="center", valign="center", size=4 );
 	}
@@ -192,7 +192,7 @@ module plast(text1, text2){
 }
 
 module pruzinka(){
-    lenght = 25;
+    lenght = 21;
     cube_lenght = telo_vyska_zavit-1;
     cube_size = 7.5;
     
@@ -202,10 +202,10 @@ module pruzinka(){
     difference(){
         union(){
             translate([-1,-cube_size/2,0]) cube([cube_lenght, cube_size, cube_size]);
-            translate([cube_lenght,0,0]) spring4(21, 4, 180+46, 1.2, 7.5, 100);
+            translate([cube_lenght,0,0]) spring4(21, 4, 180+60, 1.2, 7.5, 100);
         }
        translate([lenght+2,-10,0]) cube(20);
-       translate([lenght,-1,0]) cube([5,2, cube_size]);
+       //translate([lenght,-1,0]) cube([5,2, cube_size]);
     }
        translate([lenght+1,-cube_size/2,0]) cube([1,cube_size,cube_size]);
 }
@@ -216,7 +216,7 @@ module pruzinka(){
 //color([1,0.5,0.5]) translate([0,0,110]) plast();
 
 
-//body();
+body();
 //body_r();
 
 //translate([0,50,0]) body_r();
@@ -229,4 +229,4 @@ module pruzinka(){
 //body();
 //plast("Petr Kůra", text2);
 //rotate([0,180,0]) cap();
-pruzinka();
+//pruzinka();
