@@ -37,7 +37,8 @@ led_mezera = 3;
 sila_pcb = 1.8;
 sila_prb_sirsi = sila_pcb + 0.5; // sirsi sila drazky pro snadnejsi zasunuti
 
-m_pcb_offser = -0.75; //posun drazky pro pcb a mista pro kondenzator - kladna hodnota je posun k led
+m_pcb_offser = -0.15; //posun drazky pro pcb - kladna hodnota je posun k led
+m_cap_offser = -0.75; //posun mista pro kondenzator - kladna hodnota je posun k led
 m_pcb_bottom = 35;
 m_pcb_top = m_pcb_bottom + 30;
 m_pcb_width = 21;
@@ -76,7 +77,7 @@ module body_r(){
 			
                 translate([m_pcb_offser,0,0]){
                     
-				    translate([0,0, 0]) cylinder(telo_vyska+hlava_vyska+CLEAR,r_telo_in_min,r_telo_in_min);
+				   #translate([(m_cap_offser-m_pcb_offser),0, 0]) cylinder(telo_vyska+hlava_vyska+CLEAR,r_telo_in_min,r_telo_in_min);
                     translate([-2*sila_pcb, -7/2, -stena_hlava-CLEAR]) cube([3, 7, stena_hlava+2*CLEAR]);                      // USB konektor díra
             
                     translate([-sila_pcb/2,-m_pcb_width/2, 0]) cube([sila_pcb, m_pcb_width, hlava_vyska+telo_vyska+CLEAR+10]);                                                                      // Drazka na PCB
