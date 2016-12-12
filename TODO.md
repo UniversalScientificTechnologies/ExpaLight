@@ -1,13 +1,8 @@
 
 ### Tisknutelný model
 
-Srazit hrany na kterých při tisku stojí komponenty:
-
- https://github.com/expediceupice/ExpaLight/blob/singleCapacitor/render/CapaLamp_body_200.stl
- https://github.com/expediceupice/ExpaLight/blob/singleCapacitor/render/CapaLamp_cap.stl
-
 Zvážit posunutí výřezu pro PCB tak, aby kondenzátor nemusel mít nožičky ohnuté mimo svojí osu. 
-
+Zvážit vytvoření osazení pro LED na vnitřní straně obalu, které by snížilo možnost průniku vody okolo LED.
 
 
 ### LED regulátor
