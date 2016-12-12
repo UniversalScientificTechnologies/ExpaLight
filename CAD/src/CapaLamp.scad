@@ -28,7 +28,7 @@ telo_vyska_zavit = 10;
 hlava_vyska = 15;
 r_hlava_out = r_telo_out + 1.75;
 
-led_dira = 3.5;
+led_dira = 3/2;
 led_koule = 10;
 led_koule_zanoreni = 3;
 led_posun = 9;
@@ -37,6 +37,7 @@ led_mezera = 3;
 sila_pcb = 1.8;
 sila_prb_sirsi = sila_pcb + 0.5; // sirsi sila drazky pro snadnejsi zasunuti
 
+m_pcb_offser = -0.75; //posun drazky pro pcb a mista pro kondenzator - kladna hodnota je posun k led
 m_pcb_bottom = 35;
 m_pcb_top = m_pcb_bottom + 30;
 m_pcb_width = 21;
@@ -72,20 +73,20 @@ module body_r(){
 				
 	translate([0,0,-hlava_vyska]){
 				translate([0,0, 0]) cylinder(telo_vyska+hlava_vyska+CLEAR,r_telo_in_min,r_telo_in_min);
-				//rotate([0,90,0]) translate([-led_posun,0,5+r_hlava_out/3]) cylinder(r_hlava_out/2 ,led_dira, led_dira*2);
-				//rotate([90,0,0]) translate([0,18,-r_hlava_out]) cylinder(r_hlava_out*2 ,1/2, 1/2);                                                                // dira pro zajisteni
-        
-				translate([-2*sila_pcb, -7/2, -stena_hlava-CLEAR]) cube([3, 7, stena_hlava+2*CLEAR]);                      // USB konektor díra
-        
-				translate([-sila_pcb/2,-m_pcb_width/2, 0]) cube([sila_pcb, m_pcb_width, hlava_vyska+telo_vyska+CLEAR+10]);                                                                      // Drazka na PCB
-				translate([-sila_prb_sirsi/2,-m_pcb_width_sirsi/2, m_pcb_length+5]) cube([sila_prb_sirsi, m_pcb_width_sirsi, hlava_vyska+telo_vyska+CLEAR+10]);                // Drazka na PCB prechod
-                hull(){
-                    translate([-sila_pcb/2,-m_pcb_width/2, m_pcb_length]) cube([sila_pcb, m_pcb_width, 0.1]);                                                   // Drazka na PCB
-                    translate([-sila_prb_sirsi/2,-m_pcb_width_sirsi/2, m_pcb_length+5]) cube([sila_prb_sirsi, m_pcb_width_sirsi, 0.1]);                // Drazka na PCB prechod
+			
+                translate([m_pcb_offser,0,0]){
+                    
+				    translate([0,0, 0]) cylinder(telo_vyska+hlava_vyska+CLEAR,r_telo_in_min,r_telo_in_min);
+                    translate([-2*sila_pcb, -7/2, -stena_hlava-CLEAR]) cube([3, 7, stena_hlava+2*CLEAR]);                      // USB konektor díra
+            
+                    translate([-sila_pcb/2,-m_pcb_width/2, 0]) cube([sila_pcb, m_pcb_width, hlava_vyska+telo_vyska+CLEAR+10]);                                                                      // Drazka na PCB
+                    translate([-sila_prb_sirsi/2,-m_pcb_width_sirsi/2, m_pcb_length+5]) cube([sila_prb_sirsi, m_pcb_width_sirsi, hlava_vyska+telo_vyska+CLEAR+10]);                // Drazka na PCB prechod
+                    hull(){
+                        translate([-sila_pcb/2,-m_pcb_width/2, m_pcb_length]) cube([sila_pcb, m_pcb_width, 0.1]);                                                   // Drazka na PCB
+                        translate([-sila_prb_sirsi/2,-m_pcb_width_sirsi/2, m_pcb_length+5]) cube([sila_prb_sirsi, m_pcb_width_sirsi, 0.1]);                // Drazka na PCB prechod
                     }
-				//translate([0,sila_pcb-led_mezera, 0]) cube([m_pcb_width/2,sila_pcb+led_mezera,hlava_vyska+telo_vyska+CLEAR+10]);
-				//translate([-sila_pcb/2, -r_telo_in, hlava_vyska+m_pcb_bottom]) cube([sila_pcb, r_telo_in*2, telo_vyska+CLEAR-m_pcb_bottom+10]);
-				
+                        
+                }
         // okenko pro led
                 difference(){
                     union(){
