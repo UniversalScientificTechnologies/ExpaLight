@@ -2,15 +2,15 @@
 
 # ExpaLight
 
-![ExpaLight 2016](/DOC/src/img/Expa_light16.JPG)
+![ExpaLight 2017](/DOC/src/img/Expa_light_night.JPG)
 
 Super-capacitor based LED red light for astronomical observations. The main intended use is for the observing nights at summer astronomical school at Upice observatory.
 
-![ExpaLight 2016](DOC/src/img/expaLight.jpg "ExpaLight")
+![ExpaLight version 2017](DOC/src/img/expaLight.jpg "ExpaLight")
 
 ## What are the benefits of using this flashlight?
 
-Astronomers need red light flashlight because it does not destroy dark adaptation of the human eye.
+Astronomers need a red light flashlight because it does not destroy dark adaptation of the human eye.
 
 * Repairable design with 3D printed chassis
 * Do not need batteries 
@@ -19,8 +19,11 @@ Astronomers need red light flashlight because it does not destroy dark adaptatio
 
 ## Do this flashlight needs to be turned off?
 
-No it could shine all night until full discharge. It allows very robust design without mechanic switches. You only need a smart-phone charger or microUSB cable and USB port to light-up the flashlight again. 
+No, it could shine all night until full discharge. It allows very robust design without mechanic switches. You only need a smart-phone charger or microUSB cable and USB port to light-up the flashlight again. 
 
 ## Why is the overall design of flashlight such complicated?
 
-It is result of many use cases. The flashlight could be used in hand, stand vertically on table, placed horizontally on paper and it does not roll. It could be also used as a headlamp etc.
+It is the result of many use cases. The flashlight could be used in hand, stand vertically on the table, placed horizontally on paper and it does not roll. It could also be used as a headlamp etc.
+
+## Where can I buy it?
+You can on [Tindie](https://www.tindie.com/products/UST_Store/expalight/) or in our [e-shop](http://www.ust.cz/shop/product_info.php?products_id=271). 
