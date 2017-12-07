@@ -12,7 +12,7 @@ Super-capacitor based LED red light for astronomical observations. The main inte
 
 Astronomers need a red light flashlight because it does not destroy dark adaptation of the human eye.
 
-* Repairable design with 3D printed chassis
+* Repairable open-source design with 3D printed chassis
 * Do not need batteries 
 * Could be charged by standard smart-phone charger or by a computer USB port in few seconds
 * It is robustness and almost waterproof
