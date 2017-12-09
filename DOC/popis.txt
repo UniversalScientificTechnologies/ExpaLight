@@ -1,0 +1,2 @@
+Vysokokapacitní červená svítilna nejen pro astronomická pozorování. Obal je vytištěn pomocí techniky 3D tisku. Uvnitř se skrývá zdroj v podobě velkého superkondenzátoru.  Svítilna obsahuje velmi svítivou  červenou LED diodu a zelenou LED diodu, která indikuje nabíjení. Po nabití na 80 % plného napětí kondenzátoru tato indikační dioda zhasne. Nabíjení je řešeno pomocí konektoru microUSB.
+
