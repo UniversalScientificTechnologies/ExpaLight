@@ -38,6 +38,10 @@ No, it could shine all night until full discharge. It allows very robust design 
 
 It is the result of many use cases. The flashlight could be used in hand, stand vertically on the table, placed horizontally on paper and it does not roll. It could also be used as a headlamp etc.
 
+## I have a suggestion or I find a issue 
+
+Open ticket in [issues](https://github.com/UniversalScientificTechnologies/ExpaLight/issues).
+
 ## Where can I buy it?
 
 You can on [Tindie](https://www.tindie.com/products/UST_Store/expalight/) or write us a email sale@ust.cz. 
