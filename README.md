@@ -1,4 +1,4 @@
-[![Join the chat at https://gitter.im/expediceupice/ExpaLight](https://badges.gitter.im/expediceupice/ExpaLight.svg)](https://gitter.im/expediceupice/ExpaLight?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Join the chat at https://gitter.im/expediceupice/ExpaLight](https://badges.gitter.im/expediceupice/ExpaLight.svg)](https://gitter.im/expediceupice/ExpaLight?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) [Facebook](https://www.facebook.com/expalight)
 
 # ExpaLight
 
@@ -17,7 +17,7 @@ Super-capacitor based LED red light for astronomical observations. The original 
 
 ![ExpaLight version 2017](DOC/src/img/expaLight.jpg "ExpaLight")
 
-ExpaLight is still active project, despite the repo inactivity. The design was constructed to widhstand many yers of usage. [Stay tuned!](https://www.facebook.com/expalight)
+ExpaLight is still active project, despite the repo inactivity. The design was constructed to widhstand many years of usage. [Stay tuned!](https://www.facebook.com/expalight)
 
 [Product manual - Czech version](/DOC/ExpaLight_navod.pdf)
 
