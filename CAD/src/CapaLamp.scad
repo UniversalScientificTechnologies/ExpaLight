@@ -58,12 +58,12 @@ module body_r(){
 
 	translate([0,0,telo_vyska-telo_vyska_zavit-CLEAR-10]){
 		trapezoidThread(
-			length=telo_vyska_zavit+CLEAR+15,		// axial length of the threaded rod 
+			length=telo_vyska_zavit+CLEAR+15,		// axial length of the threaded rod
 			pitch=5, 						// axial distance from crest to crest
 			pitchRadius=r_zavit, 		// radial distance from center to mid-profile
-			threadHeightToPitch=0.5, 		// ratio between the height of the profile and the pitch 
+			threadHeightToPitch=0.5, 		// ratio between the height of the profile and the pitch
 			profileRatio=0.5, 				// ratio between the lengths of the raised part of the profile and the pitch
-			threadAngle=30,					// angle between the two faces of the thread 
+			threadAngle=30,					// angle between the two faces of the thread
 			RH=true, 						// true/false the thread winds clockwise looking along shaft, i.e.follows the Right Hand Rule
 			clearance=0.1, 					// radial clearance, normalized to thread height
 			backlash=0.1, 					// axial clearance, normalized to pitch
@@ -71,22 +71,22 @@ module body_r(){
 		);
 	}
 
-				
+
 	translate([0,0,-hlava_vyska]){
 				translate([0,0, 0]) cylinder(telo_vyska+hlava_vyska+CLEAR,r_telo_in_min,r_telo_in_min);
-			
+
                 translate([m_pcb_offser,0,0]){
-                    
+
 				   #translate([(m_cap_offser-m_pcb_offser),0, 0]) cylinder(telo_vyska+hlava_vyska+CLEAR,r_telo_in_min,r_telo_in_min);
                     translate([-2*sila_pcb, -7/2, -stena_hlava-CLEAR]) cube([3, 7, stena_hlava+2*CLEAR]);                      // USB konektor díra
-            
+
                     translate([-sila_pcb/2,-m_pcb_width/2, 0]) cube([sila_pcb, m_pcb_width, hlava_vyska+telo_vyska+CLEAR+10]);                                                                      // Drazka na PCB
                     translate([-sila_prb_sirsi/2,-m_pcb_width_sirsi/2, m_pcb_length+5]) cube([sila_prb_sirsi, m_pcb_width_sirsi, hlava_vyska+telo_vyska+CLEAR+10]);                // Drazka na PCB prechod
                     hull(){
                         translate([-sila_pcb/2,-m_pcb_width/2, m_pcb_length]) cube([sila_pcb, m_pcb_width, 0.1]);                                                   // Drazka na PCB
                         translate([-sila_prb_sirsi/2,-m_pcb_width_sirsi/2, m_pcb_length+5]) cube([sila_prb_sirsi, m_pcb_width_sirsi, 0.1]);                // Drazka na PCB prechod
                     }
-                        
+
                 }
         // okenko pro led
                 difference(){
@@ -107,7 +107,7 @@ module body_r(){
 					translate([0,0, m_pcb_bottom+hlava_vyska-CLEAR]) cylinder(telo_vyska+hlava_vyska+CLEAR,r_telo_in-CLEAR,r_telo_in-CLEAR);
 					//translate([-r_telo_in, -r_telo_in_min, m_pcb_bottom+hlava_vyska]) cube([r_telo_in*2,r_telo_in_min*2, m_pcb_top - m_pcb_bottom]);
 				//}
-		
+
 			}
 
 }
@@ -150,14 +150,14 @@ module cap(){
 		intersection(){
             translate([0,0,stena_hlava])
                 trapezoidThread(
-                    length=telo_vyska_zavit-CLEAR+5-stena_vicko,		// axial length of the threaded rod 
+                    length=telo_vyska_zavit-CLEAR+5-stena_vicko,		// axial length of the threaded rod
                     pitch=5, 						// axial distance from crest to crest
                     pitchRadius=zavit, 		// radial distance from center to mid-profile
-                    threadHeightToPitch=0.5, 		// ratio between the height of the profile and the pitch 
+                    threadHeightToPitch=0.5, 		// ratio between the height of the profile and the pitch
                                                     // std value for Acme or metric lead screw is 0.5
                     profileRatio=0.5, 				// ratio between the lengths of the raised part of the profile and the pitch
                                                     // std value for Acme or metric lead screw is 0.5
-                    threadAngle=30,					// angle between the two faces of the thread 
+                    threadAngle=30,					// angle between the two faces of the thread
                                                     // std value for Acme is 29 or for metric lead screw is 30
                     RH=true, 						// true/false the thread winds clockwise looking along shaft, i.e.follows the Right Hand Rule
                     clearance=0.1, 					// radial clearance, normalized to thread height
@@ -189,18 +189,21 @@ module plast(text1, text2){
 	}
     translate([r_plast_out-5-0.8,0,telo_vyska/2]) rotate([0,90,0]) linear_extrude(height = 2)  text(text1, halign="center", valign="center", size=8 );
     translate([-(r_plast_out-5)+1.2,0,telo_vyska/2]) rotate([0,90,180]) linear_extrude(height = 2) text(text2, halign="center", valign="center", size=8 );
-    translate([-r_plast_out+5+1.25,0,telo_vyska/2]) rotate([0,90,180]) scale([0.15,0.15,0.52]) MLAB_logo_short();
-
+		if (len(text2) == 0)
+    translate([-r_plast_out+5+1.25,0,telo_vyska/2])
+			rotate([0,90,180])
+					scale([0.15,0.15,0.52])
+							MLAB_logo_short();
 }
 
 module pruzinka(){
     lenght = 21;
     cube_lenght = telo_vyska_zavit-1;
     cube_size = 7.5;
-    
+
     echo("delka kostky");
     echo(cube_lenght);
-    
+
     difference(){
         union(){
             translate([-1,-cube_size/2,0]) cube([cube_lenght, cube_size, cube_size]);
@@ -218,17 +221,14 @@ module pruzinka(){
 //color([1,0.5,0.5]) translate([0,0,110]) plast();
 
 
-body();
+//body();
 //body_r();
 
 //translate([0,50,0]) body_r();
-
-//translate([0,-50,0]) plast("", text2);
 
 //head_modificator();
 //body_modificator();
 
 //body();
-//plast("Petr Kůra", text2);
 //rotate([0,180,0]) cap();
 //pruzinka();
