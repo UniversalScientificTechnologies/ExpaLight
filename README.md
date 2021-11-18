@@ -4,9 +4,22 @@
 
 ![ExpaLight 2017](/DOC/src/img/Expa_light_night.JPG)
 
-Super-capacitor based LED red light for astronomical observations. The main intended use is for the observing nights at summer astronomical school at Upice observatory.
+Super-capacitor based LED red light for astronomical observations. The original intended use is for the observing nights at summer astronomical school at observatory. 
+
+## Parameters
+
+ *  Almost infinity lifetime - Super-capacitor based 
+ *  Light time is about 10 hours (energy storage is 350J)
+ *  Charging time under 50 seconsd 
+ *  Charging indication - Green LED light-up at 80% of charging voltage
+ *  Mechanically strong design 
+ *  High-efficiency LED with light intensity set perfectly for astronomical observations in night
 
 ![ExpaLight version 2017](DOC/src/img/expaLight.jpg "ExpaLight")
+
+ExpaLight is still active project, despite the repo inactivity. The design was constructed to widhstand many yers of usage. [Stay tuned!](https://www.facebook.com/expalight)
+
+[Product manual - Czech version](/DOC/ExpaLight_navod.pdf)
 
 ## What are the benefits of using this flashlight?
 
@@ -26,4 +39,5 @@ No, it could shine all night until full discharge. It allows very robust design 
 It is the result of many use cases. The flashlight could be used in hand, stand vertically on the table, placed horizontally on paper and it does not roll. It could also be used as a headlamp etc.
 
 ## Where can I buy it?
+
 You can on [Tindie](https://www.tindie.com/products/UST_Store/expalight/) or write us a email sale@ust.cz. 
