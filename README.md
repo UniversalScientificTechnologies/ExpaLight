@@ -2,46 +2,81 @@
 
 # ExpaLight
 
-![ExpaLight 2017](/DOC/src/img/Expa_light_night.JPG)
+![ExpaLight 2017](DOC/src/img/Expa_light_night.JPG)
 
-Super-capacitor based LED red light for astronomical observations. The original intended use is for the observing nights at summer astronomical school at observatory. 
+**ExpaLight** is a red LED flashlight powered by a supercapacitor, designed especially for astronomical observations. The project originated for use during observation nights at summer astronomical schools at the observatory. Thanks to its robust and open-source design, ExpaLight is suitable for both amateur and professional users.
 
-## Parameters
+## Technical Parameters
 
- *  Almost infinity lifetime - Super-capacitor based 
- *  Light time is about 10 hours (energy storage is 350J)
- *  Charging time under 50 seconsd 
- *  Charging indication - Green LED light-up at 80% of charging voltage
- *  Mechanically strong design 
- *  High-efficiency LED with light intensity set perfectly for astronomical observations in night
+| Parameter           | Value                                |
+| ------------------- | ------------------------------------ |
+| Stored energy       | 350 J                                |
+| Light duration      | \~10 h                               |
+| Charging time       | < 50 s (typ.), max. 2 min            |
+| Charging indication | Green LED off at 80% voltage         |
+| Charging interface  | MicroUSB, ≤500 mA                    |
+| Housing             | 3D-printed PLA, durable, water-resistant |
+| Light Source        | High-efficiency red LED              |
+
+## Key Features
+
+* **Supercapacitor energy storage** (350 J)
+* **Light duration:** up to 10 hours
+* **Fast charging:** typically under 50 seconds, max. 2 minutes from full discharge
+* **Charging indication:** green LED turns off at \~80% voltage
+* **Durable 3D-printed housing**, mechanically and water resistant
+* **High-efficiency red LED**, optimized for dark adaptation of the human eye
+* **No batteries needed**, USB charging (microUSB)
+* **Open-source and repairable**
 
 ![ExpaLight version 2017](DOC/src/img/expaLight.jpg "ExpaLight")
 
-ExpaLight is still active project, despite the repo inactivity. The design was constructed to widhstand many years of usage. [Stay tuned!](https://www.facebook.com/expalight)
+ExpaLight remains an active project despite repository inactivity. The design was made to withstand years of usage.
 
-[Product manual - Czech version](/DOC/ExpaLight_navod.pdf)
+[Product manual – Czech version](/DOC/ExpaLight_navod.pdf)
 
-## What are the benefits of using this flashlight?
 
-Astronomers need a red light flashlight because it does not destroy dark adaptation of the human eye.
+## Why red light?
 
-* Repairable open-source design with 3D printed chassis
-* Do not need batteries 
-* Could be charged by standard smart-phone charger or by a computer USB port in few seconds
-* It is robustness and almost waterproof
+Astronomers use red light because it preserves the dark adaptation of the human eye, making it ideal for observing the night sky.
 
-## Do this flashlight needs to be turned off?
+## Usage
 
-No, it could shine all night until full discharge. It allows very robust design without mechanic switches. You only need a smart-phone charger or microUSB cable and USB port to light-up the flashlight again. 
+* Can be placed **horizontally** (ideal for writing into observation logs)
+* Can stand **vertically** with LED up or down
+* Can be recharged while in use
+* Works even when permanently connected to a charger
 
-## Why is the overall design of flashlight such complicated?
+## Maintenance
 
-It is the result of many use cases. The flashlight could be used in hand, stand vertically on the table, placed horizontally on paper and it does not roll. It could also be used as a headlamp etc.
+* Clean with cloth and mild soapy water
+* Do not wash under running water or immerse in liquids
+* Avoid abrasive tools to prevent scratching the housing
 
-## I have a suggestion or I find a issue 
+## Frequently Asked Questions
 
-Open ticket in [issues](https://github.com/UniversalScientificTechnologies/ExpaLight/issues).
+**Do I need to switch it off?**
+No. The flashlight has no mechanical switch. It shines until fully discharged, then you recharge it via USB.
 
-## Where can I buy it?
+**Why this shape?**
+The hexagonal body prevents rolling, ensures stable positioning on surfaces, and supports versatile use (e.g. headlamp attachment in future).
 
-You can on [Tindie](https://www.tindie.com/products/UST_Store/expalight/) or write us a email sale@ust.cz. 
+**Can I leave it charging permanently?**
+Yes. The electronics are designed to handle permanent connection safely.
+
+**What happens if it is fully discharged?**
+Nothing. Unlike battery-based lamps, the supercapacitor can be fully discharged without degradation.
+
+**Can I use a mobile charger?**
+Yes. Any standard microUSB charger (5V, ≤500 mA) or USB port will work. Some smart chargers may fail due to low current draw — in that case, use another charger.
+
+
+## Availability
+
+You can purchase ExpaLight at [Tindie](https://www.tindie.com/products/10265/) or contact us directly at **[sale@ust.cz](mailto:sale@ust.cz)**.
+
+
+## Contributions
+
+ExpaLight is an open-source hardware project. Suggestions and improvements are welcome! Please open an issue in the [GitHub tracker](https://github.com/UniversalScientificTechnologies/ExpaLight/issues).
+
